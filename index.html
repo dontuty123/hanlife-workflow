@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vietnam Video Workflow — Han Life Style</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0a0a0f; color: #e2e8f0; }
+  ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0f0f1a; }
+  ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+  button { cursor: pointer; }
+  pre { white-space: pre-wrap; word-break: break-word; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState } = React;
+
+const phases = [
+  {
+    id: 1, emoji: "🧠", title: "PRE-PRODUCTION", subtitle: "Concept & Script", color: "#F97316",
+    steps: [
+      {
+        title: "Chọn Concept Episode", tag: "CONCEPT",
+        detail: `FORMAT CỐ ĐỊNH:\n"I Lived As A [Role] In Vietnam For A Day"\n\nEPISODE IDEAS:\n• I Lived As A $3/Day Worker In Saigon\n• I Survived On Vietnam Street Food For 24 Hours\n• I Spent A Sunday Like A Low-Income Worker In HCMC\n• I Tried To Eat For $2 In Vietnam's Biggest City\n• A Day In The Life: $500/Month Worker In Saigon\n\nCÂU HỎI CHỌN EPISODE:\n✅ Có số tiền cụ thể không?\n✅ Người ngoài Việt Nam có tò mò không?\n✅ Mình có thể quay đủ b-roll không?\n✅ Có ít nhất 1 contrast moment không?`
+      },
+      {
+        title: "Research & Location Scouting", tag: "RESEARCH",
+        detail: `SCOUT TRƯỚC NGÀY QUAY:\n\n📍 MUST-HAVE locations:\n• Chợ địa phương (chợ ướt, không phải Coopmart)\n• Xe đẩy street food vỉa hè\n• Chung cư cũ / hẻm nhỏ\n• Công viên buổi tối\n• Tiệm cà phê bình dân (<20k/ly)\n• ATM rút tiền (nếu ep về budget)\n\n📍 CONTRAST shots (mạnh nhất):\n• Luxury mall / tòa nhà hiện đại gần đó\n• Khu giàu vs khu nghèo cùng quận\n\n📝 GHI LẠI:\n• Giá từng món ngay lúc mua\n• Tên món bằng tiếng Việt + tiếng Anh\n• Địa chỉ để caption`
+      },
+      {
+        title: "Viết Script Voiceover Trước", tag: "SCRIPT",
+        detail: `⚠️ VIẾT SCRIPT TRƯỚC KHI QUAY — không phải sau.\n\nSTRUCTURE cho 1 episode (~15-20 phút):\n\n[0:00-0:15] HOOK\n→ Câu hỏi mở: "What does it actually cost to live here?"\n→ Số tiền cụ thể ngay: "Today I have $3. That's my budget."\n\n[0:15-1:30] SETUP\n→ Giới thiệu: who you are, what today is about\n→ Show tiền thật / budget thật\n\n[1:30-15:00] THE DAY (follow activities)\n→ Mỗi activity = 1 mini-arc:\n   • Đi đến đâu + tại sao\n   • Quan sát chi tiết (describe what camera sees)\n   • Insight / cảm xúc ngắn\n   • Giá tiền nếu có\n\n[15:00-17:00] REFLECTION\n→ Điều ngạc nhiên nhất trong ngày\n→ Insight thật, không cần tích cực giả tạo\n\n[17:00-17:30] OUTRO\n→ Câu hỏi ngược về người xem`
+      },
+      {
+        title: "Tone & Voice Guidelines", tag: "TONE",
+        detail: `✅ VIẾT như thế này:\n• Câu ngắn. Direct. Mỗi idea 1 câu.\n• Dùng số cụ thể: "This cost 25,000 VND — about $1."\n• Quan sát không phán xét: "The vendor has been here for 20 years."\n• Cảm xúc thật, không melodrama: "It's simple. But it's enough."\n• Humor nhẹ, self-aware: "I probably look like a tourist right now."\n\n❌ TRÁNH:\n• "Vietnam is so beautiful!" (tourist cliché)\n• "I can't believe how cheap this is!" (condescending)\n• Phán xét giàu/nghèo\n• Giải thích quá nhiều — show, don't tell\n\n🎯 GOLDEN RULE từ Han Life:\n→ Nói điều đàn ông thường không nói.\n→ Nói điều người địa phương coi là hiển nhiên\n   nhưng fascinating với outsider.\n→ Dùng "I think I'm okay with it" thay vì "I'm okay" —\n   sự không chắc chắn tạo resonance.`
+      }
+    ]
+  },
+  {
+    id: 2, emoji: "🎥", title: "PRODUCTION", subtitle: "Quay Video", color: "#8B5CF6",
+    steps: [
+      {
+        title: "Shot List Thiết Yếu", tag: "SHOTS",
+        detail: `MỖI LOCATION cần đủ 4 loại shot:\n\n1. 🌍 ESTABLISHING SHOT\n   → Wide shot: cảnh tổng quan khu vực\n   → Quay từ xa, thấy bối cảnh đầy đủ\n   → Ít nhất 5-10 giây mỗi cảnh\n\n2. 🚶 ACTIVITY SHOT\n   → Medium shot: bạn đang làm gì\n   → Đi bộ, ngồi ăn, trả tiền, nhìn đồ\n   → Candid tốt hơn posed\n\n3. 🔍 DETAIL SHOT ← QUAN TRỌNG NHẤT\n   → Close-up: món ăn, tờ tiền, biển giá,\n     tay người bán, khói bốc từ chảo\n   → Đây là shot tạo storytelling\n\n4. 😐 REACTION SHOT\n   → Mặt bạn khi ăn / thấy giá / ngạc nhiên\n   → Không cần nói — facial expression đủ\n   → Quay thêm, cắt bớt sau`
+      },
+      {
+        title: "Camera Setup Thực Tế", tag: "GEAR",
+        detail: `📱 NẾU DÙNG ĐIỆN THOẠI:\n• Quay ngang cho main video\n• Quay dọc cho Shorts/Reels cut\n• Dùng gimbal nếu có (ổn định hơn)\n• TẮT beauty filter — muốn authentic\n\n⚙️ SETTINGS KHUYẾN NGHỊ:\n• Resolution: 4K 30fps\n  (hoặc 1080p 60fps nếu lag)\n• Exposure: để hơi sáng hơn bình thường\n  (dễ chỉnh hơn khi edit tối)\n• Âm thanh: KHÔNG cần thu tiếng trong\n  (sẽ dùng AI voiceover — xem Phase 3)\n• Nhưng HÃY thu ambient sound riêng\n\n🎒 MANG THEO:\n• Power bank\n• Tiền mặt nhỏ (20k, 50k, 100k)\n• Note app để ghi giá ngay lúc mua\n• Nước uống (quay ngoài trời nóng)\n\n💡 POV TRICK:\nCamera gần ngực/túi áo\n→ Người xem cảm giác đang trực tiếp trải nghiệm`
+      },
+      {
+        title: "B-Roll Essentials cho Vietnam", tag: "B-ROLL",
+        detail: `CHECKLIST B-ROLL PHẢI CÓ:\n\n🌅 MORNING (6-8am tốt nhất)\n□ Đường phố sáng sớm — ánh sáng đẹp nhất\n□ Xe máy đông đúc giờ cao điểm\n□ Người bán hàng rong buổi sáng\n□ Ly cà phê / trà đá trên vỉa hè\n\n🍜 FOOD (close-up là vua)\n□ Tay người bán đang nấu / chế biến\n□ Khói bốc từ chảo / nồi\n□ Tiền trao — nhận (close-up thật gần)\n□ Biển giá đọc được số tiền rõ ràng\n□ Mặt bạn ăn miếng đầu tiên\n\n🏘️ ENVIRONMENT\n□ Hẻm nhỏ — iconic Saigon\n□ Dây điện chằng chịt trên đầu\n□ Người ngồi nghỉ vỉa hè\n□ Xe máy chở đồ cồng kềnh\n□ Chung cư cũ / tường bong tróc\n\n🌆 EVENING\n□ Ánh đèn đường / đèn xe\n□ Công viên / người dạo bộ\n□ Street food cart thắp sáng bằng đèn vàng`
+      },
+      {
+        title: "Nguyên Tắc Quay Không Awkward", tag: "TIPS",
+        detail: `VÌ ĐÂY LÀ "EXPERIENCE" FORMAT:\nBạn là người trải nghiệm, không phải phóng viên.\n\n✅ DOs:\n• Quay từ hông / góc khuất trước\n• Hỏi xin phép người bán trước khi quay gần\n• Để camera chạy dài — cắt sau khi edit\n• Ngồi ăn thật, không cần nhìn camera\n• "Candid" moments tốt hơn staged\n• Gật đầu / mỉm cười với người bán\n  trước khi rút điện thoại ra\n\n❌ DON'Ts:\n• Dí camera vào mặt người lạ\n• Quay trong chùa / bệnh viện không xin phép\n• Quay trẻ em không được phép cha mẹ\n• Giả vờ không quay mà quay\n\n💡 NẾU NGƯỜI BÁN KHÔNG MUỐN QUAY:\nMua đồ xong rồi quay lại khu vực đó\nQuay establishing shot từ xa là đủ`
+      }
+    ]
+  },
+  {
+    id: 3, emoji: "🎙️", title: "VOICEOVER", subtitle: "Script → 11Labs", color: "#059669",
+    steps: [
+      {
+        title: "Finalize Script Sau Khi Quay", tag: "PREP",
+        detail: `SAU KHI CÓ FOOTAGE, CHỈNH SCRIPT:\n\n1. Xem lại toàn bộ footage\n2. Note timestamp những shot đẹp / unexpected\n3. Viết/chỉnh voiceover THEO footage thật\n   (không phải theo script gốc)\n\nSCRIPT FORMAT CHUẨN cho 11Labs:\n\n• Mỗi câu 1 dòng riêng\n• Đánh dấu [PAUSE] chỗ cần nghỉ dài\n• KHÔNG viết tắt — 11Labs đọc sai:\n  ❌ "$1"   → ✅ "one dollar"\n  ❌ "VND"  → ✅ "Vietnamese dong"\n  ❌ "30k"  → ✅ "thirty thousand dong"\n  ❌ "HCMC" → ✅ "Ho Chi Minh City"\n\n• Tên tiếng Việt: viết phonetic\n  ❌ "bánh mì" → ✅ "banh mi"\n  ❌ "phở"     → ✅ "pho"\n  ❌ "bún bò"  → ✅ "bun bo"`
+      },
+      {
+        title: "11Labs Setup & Settings", tag: "11LABS",
+        detail: `🎤 VOICE SELECTION:\n• "Adam" — natural, slightly tired, documentary feel\n• "Antoni" — warmer, slightly younger\n• "Charlie" — clear, neutral accent\n• TRÁNH: voices quá enthusiastic / podcast-y\n\n⚙️ SETTINGS KHUYẾN NGHỊ:\n• Stability: 0.50 - 0.60\n  (thấp hơn = tự nhiên hơn, cao hơn = robotic)\n• Similarity Boost: 0.70 - 0.75\n• Style: 0 (để natural)\n• Speaker Boost: BẬT\n• Model: eleven_multilingual_v2\n\n📝 WORKFLOW:\n1. Chia script thành đoạn 200-300 từ\n2. Gen từng đoạn riêng\n   (dễ re-gen nếu sai mà không tốn credit)\n3. Download dạng MP3 192kbps\n4. Đặt tên: 01_hook.mp3, 02_setup.mp3...\n\n💡 PRO TIP:\nGen 2-3 lần cho câu cảm xúc quan trọng\nChọn take nào sound natural nhất`
+      },
+      {
+        title: "Âm Thanh Bổ Sung", tag: "AUDIO",
+        detail: `LAYERING AUDIO — quan trọng hơn nhiều người nghĩ:\n\n🎵 BACKGROUND MUSIC:\n• Style: lo-fi, ambient, nhẹ nhàng\n• Nguồn free: Epidemic Sound, Uppbeat,\n  YouTube Audio Library\n• Keywords: "vietnam ambient", "asian lo-fi",\n  "city life calm", "documentary background"\n• Volume mix: Voice 100% | Music 8-12%\n\n🔊 AMBIENT SOUND (tạo "you are there" feeling):\n• Thu âm khi quay — chạy mic liên tục\n• Tiếng xe máy, tiếng chợ, tiếng nấu ăn\n• Volume mix: Voice 100% | Ambient 15-20%\n• Layer dưới voiceover, không che voice\n\n⚠️ NẾU KHÔNG THU ĐƯỢC:\n• freesound.org — tìm "vietnam street"\n• freesound.org — tìm "saigon traffic"\n• freesound.org — tìm "street food wok"\n• Pixabay — "asian city ambient"\n\n🎚️ MASTER VOLUME ORDER:\n1. Voiceover (loudest)\n2. Ambient sound\n3. Music (softest)`
+      }
+    ]
+  },
+  {
+    id: 4, emoji: "✂️", title: "POST-PRODUCTION", subtitle: "Edit & Publish", color: "#DC2626",
+    steps: [
+      {
+        title: "Edit Structure & Timeline", tag: "TIMELINE",
+        detail: `TIMELINE LAYOUT:\n\nTrack 1 (Video): Main footage\nTrack 2 (Video): B-roll overlay\nTrack 3 (Audio): Voiceover MP3s\nTrack 4 (Audio): Ambient sound\nTrack 5 (Audio): Background music\n\nPACING RULES:\n• Hook (0-30s): Cut nhanh, nhiều visual\n• Middle: Slower, để cảnh thở 3-5s\n• Reflection: 1 cảnh dài + voice không cut\n• Khoảng im lặng tối đa: 1.5 giây\n\nTIMING RULE:\n• Voiceover DẪN, footage THEO SAU\n• B-roll che khi cần jump cut\n• Cut đúng nhịp music beat\n\nSOFTWARE:\n• CapCut — dễ nhất, mobile-friendly\n• DaVinci Resolve — miễn phí, professional\n• Premiere Pro — nếu đã quen`
+      },
+      {
+        title: "Text & Graphics On-Screen", tag: "GRAPHICS",
+        detail: `MUST-HAVE ON-SCREEN TEXT:\n\n💰 PRICE TAGS:\n• Style: sans-serif trắng, outline đen nhẹ\n• Format: "25,000đ (~$1)"\n• Xuất hiện đúng lúc voice đọc giá\n• Fade in/out 0.3 giây\n\n📍 LOCATION TAGS:\n• "Quan 1, Ho Chi Minh City"\n• "Local Market — 6:30 AM"\n\n📊 BUDGET TRACKER ← VIRAL ELEMENT:\n• Góc trên phải màn hình\n• Format: "Budget: $3.00 → $2.15 → $1.40"\n• Update sau MỖI LẦN mua\n• Người xem THÍCH theo dõi số này giảm dần\n• Màu đỏ khi gần hết budget\n\nFONT STYLE:\n• Titles: Bebas Neue hoặc Impact\n• Body text: Inter hoặc DM Sans\n• Size: đủ to để đọc được trên mobile\n\n❌ TRÁNH:\n• Quá nhiều màu sắc\n• Animation quá phức tạp\n• Text che mất cảnh quan trọng`
+      },
+      {
+        title: "Color Grading", tag: "COLOR",
+        detail: `AESTHETIC TARGET cho Vietnam daily life:\n\n🎨 LOOK:\n• Warm, slightly desaturated\n• Không quá cinematic — giữ authentic\n• Contrast vừa phải, không crushed blacks\n• Highlights hơi golden (gợi nắng Saigon)\n\nNHANH NHẤT:\n• CapCut → preset "Documentary" hoặc "Vintage"\n• Tiết kiệm 2 giờ chỉnh tay\n\nTHỦ CÔNG (DaVinci):\n• Lift shadows: +5 (không quá tối)\n• Color temp: +150K (warm)\n• Saturation: -10 (slightly muted)\n• Contrast: +15\n\nLUT REFERENCES:\n• VSCO A6 hoặc A4\n• Kodak Vision3 250D emulation\n• Fuji 400H\n\n⚠️ ĐỪNG OVERDO:\nHan Life giữ màu gần tự nhiên\n= authentic feeling\nQuá cinematic → cảm giác fake / staged`
+      },
+      {
+        title: "Thumbnail & Title Formula", tag: "PUBLISH",
+        detail: `THUMBNAIL FORMULA (học từ Han Life):\n[Số tiền / con số] + [Mặt reaction] + [1 chữ lớn]\n\nVÍ DỤ:\n• "$3/DAY" + mặt bạn nhìn tô phở + "SAIGON"\n• "ALONE" trắng to + cảnh hẻm buổi tối\n• "STUCK HERE" + chung cư cũ góc rộng\n• "$2" đỏ lớn + mặt bạn lo lắng\n\nTHUMBNAIL RULES:\n• Chữ: Vàng hoặc Trắng, outline đen\n• Tối đa 5 chữ\n• Face phải chiếm >30% diện tích\n• Test xem ở size nhỏ (mobile) còn đọc được không\n\n---\n\nTITLE FORMULA:\n"I [Did X] In Vietnam — [Revelation]"\n\nVÍ DỤ:\n• "I Lived On $3 A Day In Saigon"\n• "A Day As A Low-Income Worker In Vietnam"\n• "I Ate Only Street Food For $2 In HCMC"\n• "What It's Really Like Living Alone In Vietnam"\n\nTAGS SEO (15 tags):\nvietnam, saigon, ho chi minh city,\nlow income life, street food vietnam,\nlife in vietnam, vietnam vlog,\nvietnam daily life, cost of living vietnam,\nvietnam 2025, living in vietnam`
+      }
+    ]
+  },
+  {
+    id: 5, emoji: "📋", title: "TEMPLATES", subtitle: "Copy & Paste", color: "#0284C7",
+    steps: [
+      {
+        title: "Full Episode Script Template", tag: "SCRIPT",
+        detail: `=== HOOK (0:00 - 0:20) ===\n"[Câu hỏi gây tò mò].\nToday, I have [số tiền] dollars.\nThat is my budget for the entire day.\nLet me show you what life actually looks like\nfor a low-income worker in Ho Chi Minh City."\n\n=== SETUP (0:20 - 1:00) ===\n"It is [time] in the morning.\nThe city is already awake.\nMost people here start their day early.\nNot because they want to.\nBut because they have to.\n[Describe what camera shows]."\n\n=== ACTIVITY BLOCK (repeat 4-5 times) ===\n"[Where you are — 1 sentence].\n[What you observe — 2-3 sentences, specific details].\nThis costs [price].\n[One insight or honest feeling — 1-2 sentences]."\n\n=== CONTRAST MOMENT ===\n"Just [X] minutes from here,\nthere is [luxury thing].\nSame city. Different world."\n\n=== REFLECTION ===\n"By the end of the day, I spent [total].\n[What surprised you most].\n[One honest thought — no forced positivity].\nFor the people who live this every day,\nit is not a challenge. It is just Tuesday."\n\n=== OUTRO ===\n"[Final observation about Saigon or the people].\nHow much do you spend on food in a day?\nLeave it in the comments.\nI will see you in the next one."`
+      },
+      {
+        title: "Pre-Upload Checklist", tag: "CHECKLIST",
+        detail: `TECHNICAL:\n□ Video dài 12-20 phút (optimal watch time)\n□ Đầu video có số tiền cụ thể trong 30 giây\n□ Audio voiceover rõ, không bị clip\n□ Budget tracker on-screen update đủ\n□ Màu sắc consistent cả video\n□ Không có footage bị shake quá mạnh\n□ Subtitles: auto-gen rồi check lại\n\nYOUTUBE UPLOAD:\n□ Thumbnail: face + số tiền + 1 chữ lớn\n□ Title: "I [X] In Vietnam" format\n□ Description: 150 từ đầu có keyword chính\n□ Tags: 10-15 mix broad + specific\n□ End screen: suggest video tiếp theo\n□ Chapters: thêm timestamps vào description\n\nPOST-UPLOAD (48h đầu — quan trọng nhất):\n□ Share lên Reddit: r/vietnam, r/solotravel\n□ Share lên Facebook: Vietnam Expats groups\n□ Reply tất cả comment trong 24h đầu\n□ Pin 1 comment của mình (budget breakdown)\n□ Check CTR sau 24h:\n   • < 3% → đổi thumbnail ngay\n   • 3-6% → bình thường\n   • > 6% → thumbnail đang work tốt`
+      },
+      {
+        title: "Ý Tưởng Episode Tiếp Theo", tag: "IDEAS",
+        detail: `EPISODE IDEAS THEO MÙA / SỰ KIỆN:\n\n📅 EVERGREEN (quay bất cứ lúc nào):\n• I Lived On $3 A Day In Saigon\n• 24 Hours Eating Only Street Food In Vietnam\n• What A Low-Income Sunday Looks Like In HCMC\n• I Tried To Find An Apartment In Saigon For $200\n• A Day Working A Factory Job In Vietnam\n\n🌟 CONTRAST SERIES (viral potential cao):\n• $3 vs $300 — Same Day In Saigon\n• I Ate At The Cheapest vs Most Expensive\n  Street Food In Vietnam\n• Old Neighborhood vs Luxury Complex:\n  Same City, Different Lives\n\n🎯 EXPERIENCE SERIES:\n• I Woke Up At 4AM Like A Saigon Street Vendor\n• I Rode A Xe Ôm For A Full Day In HCMC\n• I Tried To Survive On Only Convenience Store\n  Food In Vietnam For A Day\n\n💡 DATA HOOK IDEAS (thumbnail-friendly):\n"$47 A Week"\n"$1.50 Lunch"\n"80-Minute Commute"\n"40-Year-Old Apartment"`
+      }
+    ]
+  }
+];
+
+function App() {
+  const [activePhase, setActivePhase] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
+
+  const phase = phases[activePhase];
+  const step = phase.steps[activeStep];
+
+  const goNext = () => {
+    if (activeStep < phase.steps.length - 1) setActiveStep(s => s + 1);
+    else if (activePhase < phases.length - 1) { setActivePhase(p => p + 1); setActiveStep(0); }
+  };
+
+  const goPrev = () => {
+    if (activeStep > 0) setActiveStep(s => s - 1);
+    else if (activePhase > 0) { const p = activePhase - 1; setActivePhase(p); setActiveStep(phases[p].steps.length - 1); }
+  };
+
+  return (
+    <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", background: "#0a0a0f", minHeight: "100vh", color: "#e2e8f0", display: "flex", flexDirection: "column" }}>
+      {/* Header */}
+      <div style={{ borderBottom: "1px solid #1e293b", padding: "16px 24px", background: "#0f0f1a" }}>
+        <div style={{ fontSize: 10, color: "#64748b", letterSpacing: 3, textTransform: "uppercase", marginBottom: 4 }}>Vietnam Experience Video</div>
+        <div style={{ fontSize: 20, fontWeight: 700, color: "#f8fafc" }}>Production Workflow <span style={{ color: "#64748b", fontSize: 14, fontWeight: 400 }}>— Han Life Style</span></div>
+      </div>
+
+      {/* Phase tabs */}
+      <div style={{ display: "flex", gap: 4, padding: "10px 16px", background: "#0f0f1a", borderBottom: "1px solid #1e293b", overflowX: "auto", flexShrink: 0 }}>
+        {phases.map((p, i) => (
+          <button key={p.id} onClick={() => { setActivePhase(i); setActiveStep(0); }}
+            style={{ padding: "7px 13px", borderRadius: 8, border: "none", fontSize: 11, fontWeight: 600, whiteSpace: "nowrap", transition: "all 0.15s", background: activePhase === i ? p.color : "#1e293b", color: activePhase === i ? "#fff" : "#94a3b8" }}>
+            {p.emoji} {p.title}
+          </button>
+        ))}
+      </div>
+
+      {/* Main */}
+      <div style={{ display: "flex", flex: 1, overflow: "hidden", minHeight: 0 }}>
+        {/* Sidebar */}
+        <div style={{ width: 210, background: "#0f0f1a", borderRight: "1px solid #1e293b", padding: "14px 10px", display: "flex", flexDirection: "column", gap: 5, overflowY: "auto", flexShrink: 0 }}>
+          <div style={{ fontSize: 9, color: "#475569", letterSpacing: 2, textTransform: "uppercase", padding: "0 4px", marginBottom: 4 }}>{phase.subtitle}</div>
+          {phase.steps.map((s, i) => (
+            <button key={i} onClick={() => setActiveStep(i)}
+              style={{ padding: "9px 11px", borderRadius: 8, border: `1px solid ${activeStep === i ? phase.color : "transparent"}`, background: activeStep === i ? phase.color + "22" : "transparent", color: activeStep === i ? "#f8fafc" : "#64748b", textAlign: "left", fontSize: 11, fontWeight: activeStep === i ? 600 : 400, lineHeight: 1.4, transition: "all 0.15s" }}>
+              <span style={{ display: "inline-block", background: activeStep === i ? phase.color : "#1e293b", color: "#fff", fontSize: 8, padding: "1px 5px", borderRadius: 4, marginBottom: 3, fontWeight: 700, letterSpacing: 1 }}>{s.tag}</span>
+              <div>{s.title}</div>
+            </button>
+          ))}
+        </div>
+
+        {/* Detail */}
+        <div style={{ flex: 1, padding: "24px 28px", overflowY: "auto" }}>
+          <div style={{ marginBottom: 20 }}>
+            <div style={{ display: "inline-block", background: phase.color, color: "#fff", fontSize: 9, padding: "3px 10px", borderRadius: 20, fontWeight: 700, letterSpacing: 1, marginBottom: 10 }}>
+              {phase.emoji} {phase.title} — {step.tag}
+            </div>
+            <h2 style={{ fontSize: 20, fontWeight: 700, color: "#f8fafc", margin: 0 }}>{step.title}</h2>
+          </div>
+
+          <div style={{ background: "#111827", border: "1px solid #1e293b", borderRadius: 12, padding: "22px 26px" }}>
+            {step.detail.split("\n").map((line, i) => {
+              if (line === "") return <div key={i} style={{ height: 8 }} />;
+              if (line.startsWith("===")) return (
+                <div key={i} style={{ color: phase.color, fontSize: 10, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginTop: 18, marginBottom: 7, paddingBottom: 5, borderBottom: "1px solid " + phase.color + "44" }}>
+                  {line.replace(/===/g, "").trim()}
+                </div>
+              );
+              if (line === "---") return <div key={i} style={{ borderTop: "1px solid #1e293b", margin: "14px 0" }} />;
+              const isIndented = line.startsWith("  ") || line.startsWith("   ");
+              return (
+                <div key={i} style={{ fontSize: isIndented ? 12 : 13, color: isIndented ? "#64748b" : "#cbd5e1", lineHeight: 1.85, fontFamily: isIndented ? "monospace" : "inherit", paddingLeft: isIndented ? 8 : 0 }}>
+                  {line}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Nav */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 18 }}>
+            <button onClick={goPrev} style={{ padding: "9px 18px", background: "#1e293b", border: "none", borderRadius: 8, color: "#94a3b8", fontSize: 12 }}>← Trước</button>
+            <div style={{ color: "#475569", fontSize: 11 }}>Phase {activePhase+1}/{phases.length} · Step {activeStep+1}/{phase.steps.length}</div>
+            <button onClick={goNext} style={{ padding: "9px 18px", background: phase.color, border: "none", borderRadius: 8, color: "#fff", fontSize: 12, fontWeight: 600 }}>Tiếp →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
