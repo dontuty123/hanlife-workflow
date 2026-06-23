@@ -23,206 +23,206 @@ const { useState } = React;
 
 const phases = [
   {
-    id:1, icon:"DNA", title:"HAN LIFE DNA", subtitle:"Phan tich kenh goc", color:"#F59E0B",
+    id:1, icon:"DNA", title:"HAN LIFE DNA", subtitle:"Phân tích kênh gốc", color:"#F59E0B",
     steps:[
       {
-        title:"Tai sao Han Life viral?", tag:"WHY VIRAL",
-        detail:`KENH 8 VIDEO -- 7K SUBS -- VIDEO DAU TIEN 145K VIEWS
+        title:"Tại sao Han Life viral?", tag:"WHY VIRAL",
+        detail:`KÊNH 8 VIDEO -- 7K SUBS -- VIDEO ĐẦU TIÊN 145K VIEWS
 
-Day khong phai may man. Co 5 ly do cu the:
+Đây không phải may mắn. Có 5 lý do cụ thể:
 
-[1] NGACH SIEU CU THE
-Khong phai "life in Vietnam" chung chung.
-La: low-income + single male + 32 tuoi + HCMC + authentic numbers.
-Nguoi xem cam giac "day la video ve toi"
-hoac "toi muon hieu nguoi nay."
+[1] NGÁCH SIÊU CỤ THỂ
+Không phải "life in Vietnam" chung chung.
+Là: low-income + single male + 32 tuổi + HCMC + authentic numbers.
+Người xem cảm giác "đây là video về tôi"
+hoặc "tôi muốn hiểu người này."
 
-[2] SO TIEN CU THE = TRUST TUC THI
-Han khong noi "toi song tiet kiem."
-Han noi: "$500/thang. $250 gui me. $70 an uong. $80 xang. $100 tiet kiem."
-Nguoi xem co the verify. Trust khong can build -- no tu co.
+[2] SỐ TIỀN CỤ THỂ = TRUST TỨC THÌ
+Han không nói "tôi sống tiết kiệm."
+Han nói: "$500/tháng. $250 gửi mẹ. $70 ăn uống. $80 xăng. $100 tiết kiệm."
+Người xem có thể verify. Trust không cần build -- nó tự có.
 
-[3] NOI DIEU DAN ONG KHONG NOI
+[3] NÓI ĐIỀU ĐÀN ÔNG KHÔNG NÓI
 "As a man, I never get asked how I feel.
 It is always about what I can do for others."
-Cau nay cham vao silent majority -- hang trieu dan ong
-cam thay dieu nay nhung chua tung nghe ai noi thang ra.
+Câu này chạm vào silent majority -- hàng triệu đàn ông
+cảm thấy điều này nhưng chưa từng nghe ai nói thẳng ra.
 
-[4] KET THUC BANG CAU HOI NGUOC
-Moi video ket: "How is your life?"
-Comment section bung no. Watch time tang vi nguoi ta doc comment.
-YouTube algorithm doc engagement = de xuat tiep.
+[4] KẾT THÚC BẰNG CÂU HỎI NGƯỢC
+Mỗi video kết: "How is your life?"
+Comment section bùng nổ. Watch time tăng vì người ta đọc comment.
+YouTube algorithm đọc engagement = đề xuất tiếp.
 
-[5] NHIN CUOC SONG MINH NHU OUTSIDER
-Han mo ta "rat barrier around the car" --
-thu nguoi Viet coi la hien nhien.
-Han mo ta cach thu gom rac tay tung tang --
+[5] NHÌN CUỘC SỐNG MÌNH NHƯ OUTSIDER
+Han mô tả "rat barrier around the car" --
+thứ người Việt coi là hiển nhiên.
+Han mô tả cách thu gom rác tay từng tầng --
 "This is incredibly hard work."
-Bien dieu binh thuong thanh fascinating
-cho 90% khan gia quoc te.`
+Biến điều bình thường thành fascinating
+cho 90% khán giả quốc tế.`
       },
       {
-        title:"6 ky thuat Storytelling cua Han", tag:"STORYTELLING",
-        detail:`[1] CONTRAST LA VU KHI CHINH
-Khong video nao cua Han thieu contrast:
-Chung cu cu 40 nam <-> Luxury complex cach 1km
-"Pre-cut fruits seem like a luxury to me" <-> canh sieu thi sang
-Cong vien mien phi <-> Fitness center co phi
->> Contrast khong can giai thich. De hinh anh noi.
+        title:"6 kỹ thuật Storytelling của Han", tag:"STORYTELLING",
+        detail:`[1] CONTRAST LÀ VŨ KHÍ CHÍNH
+Không video nào của Han thiếu contrast:
+Chung cư cũ 40 năm <-> Luxury complex cách 1km
+"Pre-cut fruits seem like a luxury to me" <-> cảnh siêu thị sang
+Công viên miễn phí <-> Fitness center có phí
+>> Contrast không cần giải thích. Để hình ảnh nói.
 
-[2] CAM XUC AN TRONG HANH DONG
-Han khong bao gio noi "I am sad" hay "I am lonely."
-Anh ay noi: "Ho Chi Minh City is always busy,
+[2] CẢM XÚC ẨN TRONG HÀNH ĐỘNG
+Han không bao giờ nói "I am sad" hay "I am lonely."
+Anh ấy nói: "Ho Chi Minh City is always busy,
 but sometimes I still feel lonely."
->> "Sometimes" + "still" = cam xuc that hon bat ky
-   tuyen bo nao.
+>> "Sometimes" + "still" = cảm xúc thật hơn bất kỳ
+   tuyên bố nào.
 
 [3] "I THINK I'M OKAY WITH IT" -- MAGIC PHRASE
-Khi noi ve viec co the khong bao gio ket hon duoc:
+Khi nói về việc có thể không bao giờ kết hôn được:
 "I think I'm okay with it."
-CHU "THINK" la chu y. Khong phai "I'm okay."
->> Su khong chac chan = authentic.
-   Nguoi xem tin ngay.
+CHỮ "THINK" là chủ ý. Không phải "I'm okay."
+>> Sự không chắc chắn = authentic.
+   Người xem tin ngay.
 
-[4] HUMOR CHE DI NOI DAU THAT
+[4] HUMOR CHE ĐI NỖI ĐAU THẬT
 "I have high blood pressure.
 My doctor won't like this drink.
 I hope you won't see this video."
->> Cuoi nhung lo. Day la emotional complexity --
-   thu content gia tao khong co duoc.
+>> Cười nhưng lo. Đây là emotional complexity --
+   thứ content giả tạo không có được.
 
-[5] DUNG SO DE TAO SCALE
+[5] DÙNG SỐ ĐỂ TẠO SCALE
 "Mr. Beast Feastables cost more than my hourly salary."
->> Khong can giai thich ngheo. 1 cau so sanh = hieu ngay.
+>> Không cần giải thích nghèo. 1 câu so sánh = hiểu ngay.
 "A sweet 40-cent cotton candy.
 This is my version of splurging on payday."
->> Reframe chi tieu nho thanh khoanh khac vui.
+>> Reframe chi tiêu nhỏ thành khoảnh khắc vui.
 
-[6] MO TA MON AN = MO TA TRANG THAI TAM LY
+[6] MÔ TẢ MÓN ĂN = MÔ TẢ TRẠNG THÁI TÂM LÝ
 "Cheap, filling, fast."
->> Khong phai food review.
-   Day la: cuoc song cua toi = cheap, filling, fast.
+>> Không phải food review.
+   Đây là: cuộc sống của tôi = cheap, filling, fast.
 "Cotton candy reminds me of being a kid."
->> Do an la cua vao ky uc va cam xuc.`
+>> Đồ ăn là cửa vào ký ức và cảm xúc.`
       },
       {
-        title:"Phan tich Comment Section", tag:"COMMUNITY",
-        detail:`TAI SAO COMMENT HAN LIFE RAT ENGAGED?
+        title:"Phân tích Comment Section", tag:"COMMUNITY",
+        detail:`TẠI SAO COMMENT HAN LIFE RẤT ENGAGED?
 
-LOAI 1 -- "Day la toi" comments:
+LOẠI 1 -- "Đây là tôi" comments:
 "I'm 34 and feel exactly the same way about marriage."
 "This is my life in Philippines / Indonesia / India."
->> Trigger: Han noi dieu universal bang ngon ngu cu the.
+>> Trigger: Han nói điều universal bằng ngôn ngữ cụ thể.
 
-LOAI 2 -- "Respect" comments:
+LOẠI 2 -- "Respect" comments:
 "The way you support your mom with half your salary..."
 "You're stronger than you think."
->> Trigger: Han khong xin sympathy nhung nguoi xem tu cho.
+>> Trigger: Han không xin sympathy nhưng người xem tự cho.
 
-LOAI 3 -- Curiosity comments:
+LOẠI 3 -- Curiosity comments:
 "How much is rent exactly?"
 "What is the name of that food at 10:09?"
->> Trigger: Han de lai gaps du de nguoi ta hoi.
+>> Trigger: Han để lại gaps đủ để người ta hỏi.
 
-LOAI 4 -- Geo-comparison comments:
+LOẠI 4 -- Geo-comparison comments:
 "In America we spend $3 just on coffee."
 "$2 lunch is impossible where I live."
->> Trigger: Con so cu the tao ra comparison tu nhien.
+>> Trigger: Con số cụ thể tạo ra comparison tự nhiên.
 
-AP DUNG VAO KENH CUA BAN:
->> Luon co it nhat 1 con so gay shock so sanh quoc te
->> Ket moi video bang cau hoi mo de nguoi xem reply
->> De lai 1-2 "gaps" -- thu khong giai thich het
-   de nguoi ta hoi
->> Reply comment trong 24h dau --
-   YouTube tinh engagement nay`
+ÁP DỤNG VÀO KÊNH CỦA BẠN:
+>> Luôn có ít nhất 1 con số gây shock so sánh quốc tế
+>> Kết mỗi video bằng câu hỏi mở để người xem reply
+>> Để lại 1-2 "gaps" -- thứ không giải thích hết
+   để người ta hỏi
+>> Reply comment trong 24h đầu --
+   YouTube tính engagement này`
       },
       {
-        title:"Phan tich Budget Breakdown", tag:"NUMBERS",
-        detail:`TAI SAO BUDGET BREAKDOWN LA CANH VIRAL NHAT?
+        title:"Phân tích Budget Breakdown", tag:"NUMBERS",
+        detail:`TẠI SAO BUDGET BREAKDOWN LÀ CẢNH VIRAL NHẤT?
 
 Han's breakdown ($500/month):
-$250 --> me (50% luong!)
-$70  --> an uong (~$2.3/ngay)
-$80  --> xang xe
-$100 --> tiet kiem / tuong lai
-???  --> tien thue nha (khong de cap -- o cung me)
+$250 --> mẹ (50% lương!)
+$70  --> ăn uống (~$2.3/ngày)
+$80  --> xăng xe
+$100 --> tiết kiệm / tương lai
+???  --> tiền thuê nhà (không đề cập -- ở cùng mẹ)
 
-3 YEU TO LAM BREAKDOWN NAY WORK:
+3 YẾU TỐ LÀM BREAKDOWN NÀY WORK:
 
-[A] So tien gui me = 50% luong
->> Khong can giai thich them.
-   Con so tu ke cau chuyen ve trach nhiem gia dinh
-   va ap luc tai chinh.
+[A] Số tiền gửi mẹ = 50% lương
+>> Không cần giải thích thêm.
+   Con số tự kể câu chuyện về trách nhiệm gia đình
+   và áp lực tài chính.
 
 [B] "$100 for my future, maybe a wedding,
     maybe it's just a dream."
->> Day khong phai budget line.
-   Day la cau chuyen ve hy vong va su chap nhan
-   duoc goi trong 1 con so.
+>> Đây không phải budget line.
+   Đây là câu chuyện về hy vọng và sự chấp nhận
+   được gói trong 1 con số.
 
-[C] Khong co line "entertainment" hay "personal"
->> Su vang mat cua mot khoan chi = cau chuyen tu ke.
+[C] Không có line "entertainment" hay "personal"
+>> Sự vắng mặt của một khoản chi = câu chuyện tự kể.
 
-CHO VIDEO CUA BAN ($400/month):
+CHO VIDEO CỦA BẠN ($400/month):
 
-Breakdown goi y:
-$150-160 --> tien phong (38-40% luong)
-$40-50   --> gui gia dinh (neu co)
-$50-60   --> an uong (~$1.7-2/ngay)
-$30-40   --> xang, dien thoai, dien
-$30-40   --> tiet kiem -- "maybe one day"
+Breakdown gợi ý:
+$150-160 --> tiền phòng (38-40% lương)
+$40-50   --> gửi gia đình (nếu có)
+$50-60   --> ăn uống (~$1.7-2/ngày)
+$30-40   --> xăng, điện thoại, điện
+$30-40   --> tiết kiệm -- "maybe one day"
 $20-30   --> "everything else"
 
->> Khi present: VIET TAY tren giay, khong danh may.
-   Handwriting = authentic, khong phai content
-   duoc san xuat.`
+>> Khi present: VIẾT TAY trên giấy, không đánh máy.
+   Handwriting = authentic, không phải content
+   được sản xuất.`
       }
     ]
   },
   {
-    id:2, icon:"HOOK", title:"HOOK MASTERY", subtitle:"5 kieu hook viral", color:"#EF4444",
+    id:2, icon:"HOOK", title:"HOOK MASTERY", subtitle:"5 kiểu hook viral", color:"#EF4444",
     steps:[
       {
-        title:"Tai sao Hook cu khong work?", tag:"THEORY",
-        detail:`HOOK YEU vs HOOK MANH -- Hieu co che
+        title:"Tại sao Hook cũ không work?", tag:"THEORY",
+        detail:`HOOK YẾU vs HOOK MẠNH -- Hiểu cơ chế
 
-Hook yeu pham 3 loi:
+Hook yếu phạm 3 lỗi:
 
-LOI 1 -- THONG BAO thay vi TAO TENSION
+LỖI 1 -- THÔNG BÁO thay vì TẠO TENSION
 "My salary this month is three hundred dollars."
->> Day la cau cua nguoi viet bao cao, khong phai storyteller.
->> Nguoi xem nhan thong tin nhung khong cam thay gi.
+>> Đây là câu của người viết báo cáo, không phải storyteller.
+>> Người xem nhận thông tin nhưng không cảm thấy gì.
 
-LOI 2 -- KHONG CO HINH ANH CU THE
-Nao xu ly hinh anh truoc ngon ngu.
-Hook manh = nguoi xem thay canh trong dau
-TRUOC KHI hieu y nghia.
-KHONG TOT: "I live on a low budget" -- khong thay gi
-TOT: "Twenty-two thousand dong. That's lunch."
-     -- thay ngay to tien + to com
+LỖI 2 -- KHÔNG CÓ HÌNH ẢNH CỤ THỂ
+Não xử lý hình ảnh trước ngôn ngữ.
+Hook mạnh = người xem thấy cảnh trong đầu
+TRƯỚC KHI hiểu ý nghĩa.
+KHÔNG TỐT: "I live on a low budget" -- không thấy gì
+TỐT: "Twenty-two thousand dong. That's lunch."
+     -- thấy ngay tờ tiền + tô cơm
 
-LOI 3 -- KHONG CO CURIOSITY GAP
-Hook = cua vao. Cua tot phai co 1 cau hoi chua co dap an.
-Nguoi xem phai CAN biet dieu gi do
-ma chi co the biet bang cach tiep tuc xem.
+LỖI 3 -- KHÔNG CÓ CURIOSITY GAP
+Hook = cửa vào. Cửa tốt phải có 1 câu hỏi chưa có đáp án.
+Người xem phải CẦN biết điều gì đó
+mà chỉ có thể biết bằng cách tiếp tục xem.
 
-CONG THUC HOOK MANH:
-[Hinh anh cu the] + [Cam xuc universal] + [Cau hoi chua co dap an]
+CÔNG THỨC HOOK MẠNH:
+[Hình ảnh cụ thể] + [Cảm xúc universal] + [Câu hỏi chưa có đáp án]
 
-Thoi gian: 15-25 giay. Khong duoc dai hon.
-Trong 15 giay dau, nguoi xem quyet dinh o lai hay skip.`
+Thời gian: 15-25 giây. Không được dài hơn.
+Trong 15 giây đầu, người xem quyết định ở lại hay skip.`
       },
       {
         title:"Hook Type 1 -- Specific Detail", tag:"TYPE 1",
         detail:`THE SPECIFIC DETAIL HOOK
-"Bat dau bang chi tiet nho nhat, cu the nhat"
+"Bắt đầu bằng chi tiết nhỏ nhất, cụ thể nhất"
 
-NGUYEN LY:
-Chi tiet sieu nho -> tao hinh anh tuc thi
--> nguoi xem tu hoi context la gi.
+NGUYÊN LÝ:
+Chi tiết siêu nhỏ -> tạo hình ảnh tức thì
+-> người xem tự hỏi context là gì.
 
-MAU:
+MẪU:
 "Twenty-two thousand dong.
 That is what I paid for lunch today.
 About ninety cents.
@@ -231,100 +231,100 @@ I earn four hundred dollars a month
 in Ho Chi Minh City.
 This is what that life actually looks like."
 
-TAI SAO WORK:
-- Cau dau tien = con so la -> brain muon biet them
-- "Ninety cents" = khan gia quoc te hinh dung duoc ngay
-- Cau cuoi = promise ro rang ve noi dung sap xem
+TẠI SAO WORK:
+- Câu đầu tiên = con số lạ -> brain muốn biết thêm
+- "Ninety cents" = khán giả quốc tế hình dung được ngay
+- Câu cuối = promise rõ ràng về nội dung sắp xem
 
-DUNG KHI NAO:
-Tot nhat cho episodes ve food / budget / chi tieu.
-Thumbnail text: "90 CENT LUNCH" hoac "22K DINNER"
+DÙNG KHI NÀO:
+Tốt nhất cho episodes về food / budget / chi tiêu.
+Thumbnail text: "90 CENT LUNCH" hoặc "22K DINNER"
 
-BIEN THE:
+BIẾN THỂ:
 "Eighty thousand dong for rent.
 That is my room. [show room]
 Per month."
->> Con so bat ngo + reveal ngay visual`
+>> Con số bất ngờ + reveal ngay visual`
       },
       {
         title:"Hook Type 2 -- In-Media-Res", tag:"TYPE 2",
         detail:`THE IN-MEDIA-RES HOOK
-"Bat dau NGAY GIUA mot hanh dong ky la"
+"Bắt đầu NGAY GIỮA một hành động kỳ lạ"
 
-NGUYEN LY:
-Khong giai thich. Khong setup.
-Tha nguoi xem thang vao giua canh.
-De ho tu hoi: "Chuyen gi dang xay ra?"
+NGUYÊN LÝ:
+Không giải thích. Không setup.
+Thả người xem thẳng vào giữa cảnh.
+Để họ tự hỏi: "Chuyện gì đang xảy ra?"
 
-MAU:
+MẪU:
 "I am standing in a shopping mall right now.
 I have not bought anything.
 I just come here for the air conditioning.
 [PAUSE]
-My name is [ten].
+My name is [tên].
 I make four hundred dollars a month in Saigon.
 Let me show you how I live."
 
-TAI SAO WORK:
-- Cau 1-2: action binh thuong
-- Cau 3: twist -- ly do ky la -> tao curiosity ngay
-- Setup than phan chi sau khi da co attention
+TẠI SAO WORK:
+- Câu 1-2: action bình thường
+- Câu 3: twist -- lý do kỳ lạ -> tạo curiosity ngay
+- Setup thân phận chỉ sau khi đã có attention
 
-VISUAL CAN THIET:
-Phai quay canh nay that -- ban DANG dung trong mall.
-Camera = nguoi xem dang dung cung ban.
+VISUAL CẦN THIẾT:
+Phải quay cảnh này thật -- bạn ĐANG đứng trong mall.
+Camera = người xem đang đứng cùng bạn.
 
-DUNG KHI NAO:
-Tot cho episodes ve contrast giau / ngheo.
-Thumbnail: Mat ban trong mall + "FREE AC"`
+DÙNG KHI NÀO:
+Tốt cho episodes về contrast giàu / nghèo.
+Thumbnail: Mặt bạn trong mall + "FREE AC"`
       },
       {
         title:"Hook Type 3 -- Universal Feeling (BEST)", tag:"TYPE 3",
-        detail:`THE UNIVERSAL FEELING HOOK -- RECOMMEND NHAT
-"Cham vao cam xuc chung TRUOC, so tien SAU"
+        detail:`THE UNIVERSAL FEELING HOOK -- RECOMMEND NHẤT
+"Chạm vào cảm xúc chung TRƯỚC, số tiền SAU"
 
-NGUYEN LY:
-Hoi mot cau ma hang trieu nguoi phai gat dau
-trong 3 giay dau. Khi ho da dong y voi ban mot lan,
-ho se tiep tuc nghe.
+NGUYÊN LÝ:
+Hỏi một câu mà hàng triệu người phải gật đầu
+trong 3 giây đầu. Khi họ đã đồng ý với bạn một lần,
+họ sẽ tiếp tục nghe.
 
-MAU DAY DU:
+MẪU ĐẦY ĐỦ:
 "You know that feeling on payday --
 when the money is already almost gone
 before you even touch it?
-[PAUSE -- 1.5 giay]
+[PAUSE -- 1.5 giây]
 That is every single month for me.
-[PAUSE -- 1 giay]
+[PAUSE -- 1 giây]
 I earn four hundred dollars.
 I live in one of Southeast Asia's biggest cities.
 And somehow -- I make it work.
-[PAUSE -- 1 giay]
+[PAUSE -- 1 giây]
 Today I have five dollars.
 Come with me."
 
-TAI SAO WORK NHAT:
+TẠI SAO WORK NHẤT:
 - "You know that feeling" = instant inclusion
-  Nguoi xem o Manila, Jakarta, Lagos, New York --
-  tat ca deu biet feeling nay.
+  Người xem ở Manila, Jakarta, Lagos, New York --
+  tất cả đều biết feeling này.
 - "That is every single month for me"
-  = tu universal chuyen sang ca nhan
-- "somehow" = mystery chua duoc giai
-- "Come with me" = invitation, khong phai announcement
+  = từ universal chuyển sang cá nhân
+- "somehow" = mystery chưa được giải
+- "Come with me" = invitation, không phải announcement
 
-PHAN TICH TUNG CAU:
-Cau 1-3: Tao common ground
-Cau 4: Pivot sang ca nhan
-Cau 5-6: Context (numbers)
-Cau 7: "somehow" = mystery
-Cau 8: Budget hom nay = stakes ro rang
-Cau 9: Call to action don gian nhat co the`
+PHÂN TÍCH TỪNG CÂU:
+Câu 1-3: Tạo common ground
+Câu 4: Pivot sang cá nhân
+Câu 5-6: Context (numbers)
+Câu 7: "somehow" = mystery
+Câu 8: Budget hôm nay = stakes rõ ràng
+Câu 9: Call to action đơn giản nhất có thể`
       },
       {
         title:"Hook Type 4 and 5", tag:"TYPE 4+5",
         detail:`TYPE 4 -- THE CONTRAST HOOK
-"Mo bang hinh anh doi lap, lat nguoc ngay"
+"Mở bằng hình ảnh đối lập, lật ngược ngay"
 
-MAU:
+MẪU:
 "This city has more skyscrapers going up
 than almost anywhere in Southeast Asia.
 New malls. New apartments. New money.
@@ -336,265 +336,265 @@ The city keeps getting more expensive.
 My salary stays the same.
 This is what survival looks like."
 
-VISUAL: Mo bang canh toa nha cao, hien dai.
-Sau do cut ngay sang canh hem / phong tro.
-Khong can noi gi them -- contrast tu ke.
+VISUAL: Mở bằng cảnh tòa nhà cao, hiện đại.
+Sau đó cut ngay sang cảnh hẻm / phòng trọ.
+Không cần nói gì thêm -- contrast tự kể.
 
-DUNG KHI NAO: Episodes ve inequality, khoang cach giau ngheo.
+DÙNG KHI NÀO: Episodes về inequality, khoảng cách giàu nghèo.
 
 ---
 
 TYPE 5 -- THE CONFESSION HOOK
-"Cau dau tien = thu ai cung nghi nhung khong ai noi"
+"Câu đầu tiên = thứ ai cũng nghĩ nhưng không ai nói"
 
-MAU:
+MẪU:
 "I checked my bank account this morning.
 After rent, after bills, after sending money home --
-I have [so tien] left.
+I have [số tiền] left.
 That has to last me two more weeks.
 [PAUSE]
 This is not a sob story.
 This is just Tuesday in Saigon.
 Let me show you around."
 
-CHI TIET QUAN TRONG NHAT:
+CHI TIẾT QUAN TRỌNG NHẤT:
 "This is not a sob story."
->> Ngan nguoi xem skip vi so bi drag vao noi dung nang ne.
->> Dat tone: observational, not victimhood.
+>> Ngăn người xem skip vì sợ bị drag vào nội dung nặng nề.
+>> Đặt tone: observational, not victimhood.
 >> "Just Tuesday" = normalize
-   -> nguoi xem to mo muon thay Tuesday do.
+   -> người xem tò mò muốn thấy Tuesday đó.
 
-DUNG KHI NAO: Episodes dau tien cua kenh --
-can establish tone ngay.`
+DÙNG KHI NÀO: Episodes đầu tiên của kênh --
+cần establish tone ngay.`
       },
       {
         title:"Mapping Hook theo Episode", tag:"MAPPING",
-        detail:`CHON HOOK NAO CHO EPISODE NAO?
+        detail:`CHỌN HOOK NÀO CHO EPISODE NÀO?
 
-EPISODE VE BUDGET / TIEN:
->> Type 1 (Specific Detail) hoac Type 3 (Universal)
-Best opening visual: Rut tien ATM hoac viet budget tay
+EPISODE VỀ BUDGET / TIỀN:
+>> Type 1 (Specific Detail) hoặc Type 3 (Universal)
+Best opening visual: Rút tiền ATM hoặc viết budget tay
 
-EPISODE VE MOT NGAY BINH THUONG:
->> Type 5 (Confession) hoac Type 2 (In-Media-Res)
-Best opening visual: Canh buoi sang som trong phong / hem
+EPISODE VỀ MỘT NGÀY BÌNH THƯỜNG:
+>> Type 5 (Confession) hoặc Type 2 (In-Media-Res)
+Best opening visual: Cảnh buổi sáng sớm trong phòng / hẻm
 
-EPISODE VE CONTRAST GIAU NGHEO:
->> Type 4 (Contrast) hoac Type 2 (tai mall)
-Best opening visual: Skyline HCMC -> cut ngay sang phong tro
+EPISODE VỀ CONTRAST GIÀU NGHÈO:
+>> Type 4 (Contrast) hoặc Type 2 (tại mall)
+Best opening visual: Skyline HCMC -> cut ngay sang phòng trọ
 
-EPISODE VE DO AN / STREET FOOD:
->> Type 1 (gia tien) hoac Type 3 (universal)
-Best opening visual: Tay nguoi ban dang nau, khoi boc len
+EPISODE VỀ ĐỒ ĂN / STREET FOOD:
+>> Type 1 (giá tiền) hoặc Type 3 (universal)
+Best opening visual: Tay người bán đang nấu, khói bốc lên
 
-EPISODE VE WEEKEND / DAY OFF:
->> Type 3 (Universal) hoac Type 5 (Confession ve co don)
-Best opening visual: Canh thanh pho ngoai cua so buoi sang
+EPISODE VỀ WEEKEND / DAY OFF:
+>> Type 3 (Universal) hoặc Type 5 (Confession về cô đơn)
+Best opening visual: Cảnh thành phố ngoài cửa sổ buổi sáng
 
 ---
 
-QUY TAC VANG:
-Hook phai tra loi duoc cau hoi:
-"Tai sao nguoi xem PHAI xem video nay HOM NAY?"
-Neu khong tra loi duoc --> viet lai hook.`
+QUY TẮC VÀNG:
+Hook phải trả lời được câu hỏi:
+"Tại sao người xem PHẢI xem video này HÔM NAY?"
+Nếu không trả lời được --> viết lại hook.`
       }
     ]
   },
   {
-    id:3, icon:"SCRIPT", title:"SCRIPT STRATEGY", subtitle:"Viet script nhu pro", color:"#8B5CF6",
+    id:3, icon:"SCRIPT", title:"SCRIPT STRATEGY", subtitle:"Viết script như pro", color:"#8B5CF6",
     steps:[
       {
-        title:"Huong C -- Quyet dinh chien luoc", tag:"DIRECTION C",
-        detail:`HUONG C: AUTHENTIC + DOCUMENTARY FRAMING
-Day la huong ban chon. Day la huong dung.
+        title:"Hướng C -- Quyết định chiến lược", tag:"DIRECTION C",
+        detail:`HƯỚNG C: AUTHENTIC + DOCUMENTARY FRAMING
+Đây là hướng bạn chọn. Đây là hướng đúng.
 
-CO CHE HOAT DONG:
-Ban SONG THAT --> KE LAI voi khoang cach cua narrator
---> Tao ra cau chuyen co chieu sau.
+CƠ CHẾ HOẠT ĐỘNG:
+Bạn SỐNG THẬT --> KỂ LẠI với khoảng cách của narrator
+--> Tạo ra câu chuyện có chiều sâu.
 
-Su khac biet so voi vlog thong thuong:
-Pure vlog: "Hom nay minh di an..."  --> khong co narrative
-Huong C:   "This is what lunch costs when you earn $400"
-           --> narrative co chu dich
+Sự khác biệt so với vlog thông thường:
+Pure vlog: "Hôm nay mình đi ăn..."  --> không có narrative
+Hướng C:   "This is what lunch costs when you earn $400"
+           --> narrative có chủ đích
 
-Ban khong can noi "day la cuoc song that cua toi 100%"
-hay bat ky label nao ca.
-Chi can: lay trai nghiem that lam nen,
-dat camera vao do, ke bang giong nguoi dang
-quan sat chinh minh tu ben ngoai.
+Bạn không cần nói "đây là cuộc sống thật của tôi 100%"
+hay bất kỳ label nào cả.
+Chỉ cần: lấy trải nghiệm thật làm nền,
+đặt camera vào đó, kể bằng giọng người đang
+quan sát chính mình từ bên ngoài.
 
-TAI SAO HUONG C LA TOT NHAT DE MONETIZE:
-[A] Sponsor chon creator vi AUDIENCE TRUST
-    Authentic creator build trust nhanh nhat
-[B] Khong ai copy duoc -- cuoc song cua ban la unique
-[C] Comment section tro thanh community that
+TẠI SAO HƯỚNG C LÀ TỐT NHẤT ĐỂ MONETIZE:
+[A] Sponsor chọn creator vì AUDIENCE TRUST
+    Authentic creator build trust nhanh nhất
+[B] Không ai copy được -- cuộc sống của bạn là unique
+[C] Comment section trở thành community thật
     "I feel the same way" -- "This is my life too"
-[D] Watch time cao hon vi nguoi xem invested
-    vao CON NGUOI, khong phai challenge
-[E] Long-term sustainable -- cuoc song ban tiep tuc xay ra,
-    content khong bao gio het
+[D] Watch time cao hơn vì người xem invested
+    vào CON NGƯỜI, không phải challenge
+[E] Long-term sustainable -- cuộc sống bạn tiếp tục xảy ra,
+    content không bao giờ hết
 
-LOI THE CUA BAN:
-Thu nhap $400/thang THAT
-Budget $5/ngay THAT
-Song o HCMC THAT
---> Day la loi the khong the mua duoc.`
+LỢI THẾ CỦA BẠN:
+Thu nhập $400/tháng THẬT
+Budget $5/ngày THẬT
+Sống ở HCMC THẬT
+--> Đây là lợi thế không thể mua được.`
       },
       {
-        title:"Cau truc Script 5 Layer", tag:"STRUCTURE",
-        detail:`MOI SCRIPT CO 5 LOP -- khong phai chi loi thoai
+        title:"Cấu trúc Script 5 Layer", tag:"STRUCTURE",
+        detail:`MỖI SCRIPT CÓ 5 LỚP -- không phải chỉ lời thoại
 
 LAYER 1 -- NARRATIVE ARC
-Moi video phai co: Setup -> Tension -> Insight -> Resolution
-KHONG PHAI: Sang -> Trua -> Toi (chi la timeline, khong phai arc)
+Mỗi video phải có: Setup -> Tension -> Insight -> Resolution
+KHÔNG PHẢI: Sáng -> Trưa -> Tối (chỉ là timeline, không phải arc)
 
-Vi du arc tot:
-Setup:      "Hom nay toi co $5"
-Tension:    Budget giam dan, nguoi xem lo thay
-Insight:    Contrast moment -> cau noi ve khoang cach giau ngheo
+Ví dụ arc tốt:
+Setup:      "Hôm nay tôi có $5"
+Tension:    Budget giảm dần, người xem lo theo
+Insight:    Contrast moment -> câu nói về khoảng cách giàu nghèo
 Resolution: "This is not a problem to be solved. It is just life."
 
 LAYER 2 -- EMOTIONAL TEMPERATURE
-Khong de cam xuc flat suot 17 phut.
+Không để cảm xúc flat suốt 17 phút.
 Map ra: calm -> curious -> sad -> humor -> reflective -> hopeful
 
 LAYER 3 -- INFORMATION DENSITY
-Xen ke: canh day thong tin (budget breakdown, gia tien)
-voi canh tho (di bo, ngoi im, nhin xung quanh)
-Rule: Sau moi 2-3 phut dense -> 30-60 giay breathing room
+Xen kẽ: cảnh đầy thông tin (budget breakdown, giá tiền)
+với cảnh thở (đi bộ, ngồi im, nhìn xung quanh)
+Rule: Sau mỗi 2-3 phút dense -> 30-60 giây breathing room
 
 LAYER 4 -- UNIVERSAL BRIDGES
-It nhat 3 lan trong video: tu cu the -> universal
+Ít nhất 3 lần trong video: từ cụ thể -> universal
 "This banh mi costs $1."
 --> "For a lot of people here,
     this is not a snack. It is a meal."
-Day la luc nguoi xem o bat ky dau cung gat dau.
+Đây là lúc người xem ở bất kỳ đâu cũng gật đầu.
 
 LAYER 5 -- SILENCE & PAUSE
-Im lang 1-2 giay sau cau quan trong = cam xuc landing.
-Day la ky thuat Han dung nhieu nhat
-ma it nguoi de y.`
+Im lặng 1-2 giây sau câu quan trọng = cảm xúc landing.
+Đây là kỹ thuật Han dùng nhiều nhất
+mà ít người để ý.`
       },
       {
-        title:"Cong thuc viet tung Block", tag:"WRITING",
-        detail:`CONG THUC CHO MOI ACTIVITY BLOCK
+        title:"Công thức viết từng Block", tag:"WRITING",
+        detail:`CÔNG THỨC CHO MỖI ACTIVITY BLOCK
 
-Moi dia diem / hoat dong = 1 block gom 4 phan:
+Mỗi địa điểm / hoạt động = 1 block gồm 4 phần:
 
-[WHERE] -- 1 cau, dia diem + context
+[WHERE] -- 1 câu, địa điểm + context
 "There is a small market five minutes from my room."
-Khong can giai thich nhieu. 1 cau la du.
+Không cần giải thích nhiều. 1 câu là đủ.
 
-[OBSERVE] -- 2-3 cau, quan sat cu the nhu outsider
+[OBSERVE] -- 2-3 câu, quan sát cụ thể như outsider
 "The vendors here know what time everyone shows up.
 The same woman has been selling banh mi here
 for over ten years.
 She does not need to ask what you want."
->> Chi tiet cu the > tinh tu mo ho
->> "ten years" tot hon "a long time"
->> "does not need to ask" tot hon "knows the regulars"
+>> Chi tiết cụ thể > tính từ mơ hồ
+>> "ten years" tốt hơn "a long time"
+>> "does not need to ask" tốt hơn "knows the regulars"
 
-[NUMBER] -- 1 cau, gia tien hoac con so
+[NUMBER] -- 1 câu, giá tiền hoặc con số
 "This costs twenty-two thousand dong. About ninety cents."
->> Luon noi ca VND va USD
->> Noi so bang chu: "twenty-two thousand" khong phai "22k"
+>> Luôn nói cả VND và USD
+>> Nói số bằng chữ: "twenty-two thousand" không phải "22k"
 
-[INSIGHT] -- 1-2 cau, cam xuc that hoac quan sat universal
+[INSIGHT] -- 1-2 câu, cảm xúc thật hoặc quan sát universal
 "It is not the cheapest option.
 But it is close. And it is honest."
-HOAC:
+HOẶC:
 "Some mornings this is the only thing I look forward to."
->> Khong giai thich. Khong overexplain.
->> De nguoi xem tu fill in the blank.
+>> Không giải thích. Không overexplain.
+>> Để người xem tự fill in the blank.
 
 SAI: "This is so delicious and the vendor is very friendly..."
-DUNG: 4 phan nhu tren. Moi phan ngan. Roi dung.`
+ĐÚNG: 4 phần như trên. Mỗi phần ngắn. Rồi dừng.`
       },
       {
-        title:"Pattern cau dat gia nhat cua Han", tag:"BEST LINES",
-        detail:`HOC CAU TRUC CAU TU HAN LIFE
+        title:"Pattern câu đắt giá nhất của Han", tag:"BEST LINES",
+        detail:`HỌC CẤU TRÚC CÂU TỪ HAN LIFE
 
-PATTERN 1 -- REFRAME CHI TIEU NHO
+PATTERN 1 -- REFRAME CHI TIÊU NHỎ
 Han: "A sweet forty-cent cotton candy.
       This is my version of splurging on payday."
->> Cau truc: [Mo ta nho] + "This is my version of [thu to hon]"
-Ban: "A twenty-thousand-dong iced coffee.
+>> Cấu trúc: [Mô tả nhỏ] + "This is my version of [thứ to hơn]"
+Bạn: "A twenty-thousand-dong iced coffee.
       This is my version of a treat on a hard week."
 
-PATTERN 2 -- XAC NHAN KHONG CHAC CHAN
+PATTERN 2 -- XÁC NHẬN KHÔNG CHẮC CHẮN
 Han: "I think I'm okay with it."
->> Cau truc: "I think" + tuyen bo -> khong chac = authentic
-Ban: "I think this is enough. Most days."
+>> Cấu trúc: "I think" + tuyên bố -> không chắc = authentic
+Bạn: "I think this is enough. Most days."
 
-PATTERN 3 -- NORMALIZE BANG HUMOR
+PATTERN 3 -- NORMALIZE BẰNG HUMOR
 Han: "Going to the supermarket is how I save electricity.
       I get free AC while window shopping."
->> Cau truc: [Hanh dong ky la] + [Ly do thuc te hai huoc]
-Ban: "I ride slowly to work on purpose.
+>> Cấu trúc: [Hành động kỳ lạ] + [Lý do thực tế hài hước]
+Bạn: "I ride slowly to work on purpose.
       Less gas. Or at least that's what I tell myself."
 
-PATTERN 4 -- DONG KHUNG LAI KHO KHAN
+PATTERN 4 -- ĐÓNG KHUNG LẠI KHÓ KHĂN
 Han: "This is not a sob story. This is just Tuesday in Saigon."
->> Cau truc: "This is not [X]. This is just [normalize]."
-Ban: "This is not poverty. This is just math."
+>> Cấu trúc: "This is not [X]. This is just [normalize]."
+Bạn: "This is not poverty. This is just math."
 
-PATTERN 5 -- KET BANG CAU HOI
+PATTERN 5 -- KẾT BẰNG CÂU HỎI
 Han: "How is your life?"
->> Cau truc: 1 cau hoi ngan + trao quyen cho nguoi xem
-Ban: "How much do you spend on food in a day?"
+>> Cấu trúc: 1 câu hỏi ngắn + trao quyền cho người xem
+Bạn: "How much do you spend on food in a day?"
      "Do you have something like this where you live?"
      "What would you do with five dollars in your city?"`
       },
       {
-        title:"10 loi Script can tranh", tag:"MISTAKES",
-        detail:`10 LOI PHO BIEN NHAT
+        title:"10 lỗi Script cần tránh", tag:"MISTAKES",
+        detail:`10 LỖI PHỔ BIẾN NHẤT
 
-LOI 1 -- OVEREXPLAIN
+LỖI 1 -- OVEREXPLAIN
 "Banh mi is a Vietnamese sandwich made with a baguette
 that was influenced by French colonialism..."
->> Khong. Khan gia xem de trai nghiem, khong doc Wikipedia.
+>> Không. Khán giả xem để trải nghiệm, không đọc Wikipedia.
 FIX: "This is banh mi. One dollar. I eat one almost every day."
 
-LOI 2 -- TOURIST LANGUAGE
+LỖI 2 -- TOURIST LANGUAGE
 "Vietnam is so beautiful!" / "The food is amazing!"
->> Nghe nhu travel blogger nam 2015.
+>> Nghe như travel blogger năm 2015.
 FIX: "The vendor throws the egg on last.
      Always. Every time. Without looking."
 
-LOI 3 -- FORCED POSITIVITY
+LỖI 3 -- FORCED POSITIVITY
 "Even though life is hard, I am grateful for everything!"
->> Khong ai tin. Va khong ai muon nghe.
+>> Không ai tin. Và không ai muốn nghe.
 FIX: "Some days are fine. Some days are not. Today was fine."
 
-LOI 4 -- SO TRON KHONG THUYET PHUC
+LỖI 4 -- SỐ TRÒN KHÔNG THUYẾT PHỤC
 "I spend about $2 a day on food."
->> Qua tron = khong that
+>> Quá tròn = không thật
 FIX: "I spent sixty-three thousand dong today. About two-fifty."
 
-LOI 5 -- GIAI THICH CAM XUC
+LỖI 5 -- GIẢI THÍCH CẢM XÚC
 "I felt sad when I saw the luxury apartments."
->> Tell khong bang Show
+>> Tell không bằng Show
 FIX: "I looked at the price list for ten seconds. Then I left."
 
-LOI 6 -- KET VIDEO KHONG CO CAU HOI
->> Mat dut comment section engagement
-FIX: Luon ket bang 1 cau hoi ve nguoi xem
+LỖI 6 -- KẾT VIDEO KHÔNG CÓ CÂU HỎI
+>> Mất đứt comment section engagement
+FIX: Luôn kết bằng 1 câu hỏi về người xem
 
-LOI 7 -- NOI QUA NHIEU VE BAN THAN
->> 70% script nen la quan sat / boi canh
->> 30% moi la cam xuc ca nhan
+LỖI 7 -- NÓI QUÁ NHIỀU VỀ BẢN THÂN
+>> 70% script nên là quan sát / bối cảnh
+>> 30% mới là cảm xúc cá nhân
 
-LOI 8 -- KHONG CO BREATHING ROOM
->> Voiceover lien tuc khong nghi = nguoi xem met
-FIX: 5-10 giay im lang sau cau quan trong
+LỖI 8 -- KHÔNG CÓ BREATHING ROOM
+>> Voiceover liên tục không nghỉ = người xem mệt
+FIX: 5-10 giây im lặng sau câu quan trọng
 
-LOI 9 -- INTRO QUA DAI
->> Moi thu ve ban phai fit vao 45 giay dau
-FIX: "I am [ten]. I earn $400 a month. This is my life."
+LỖI 9 -- INTRO QUÁ DÀI
+>> Mọi thứ về bạn phải fit vào 45 giây đầu
+FIX: "I am [tên]. I earn $400 a month. This is my life."
 
-LOI 10 -- COPY HAN LIFE QUA RO
->> Structure giong nhau OK, nhung cau noi phai la cua ban
-FIX: Hoc pattern, khong hoc tung chu`
+LỖI 10 -- COPY HAN LIFE QUÁ RÕ
+>> Structure giống nhau OK, nhưng câu nói phải là của bạn
+FIX: Học pattern, không học từng chữ`
       }
     ]
   },
@@ -602,13 +602,13 @@ FIX: Hoc pattern, khong hoc tung chu`
     id:4, icon:"PREP", title:"PRE-PRODUCTION", subtitle:"Concept & Script", color:"#F97316",
     steps:[
       {
-        title:"Chon Concept Episode", tag:"CONCEPT",
-        detail:`FORMAT CO DINH:
+        title:"Chọn Concept Episode", tag:"CONCEPT",
+        detail:`FORMAT CỐ ĐỊNH:
 "I [Lived/Spent/Survived] In Vietnam For A Day"
 
-EPISODE IDEAS -- DA DUOC VALIDATE boi Han Life:
+EPISODE IDEAS -- ĐÃ ĐƯỢC VALIDATE bởi Han Life:
 
-TIER 1 -- Viral potential cao nhat:
+TIER 1 -- Viral potential cao nhất:
 "I Live On $400 A Month In Saigon -- This Is My Real Life"
 "A Full Day On $5 In Ho Chi Minh City"
 "What $400 Per Month Actually Gets You In Saigon"
@@ -620,117 +620,117 @@ TIER 2 -- Strong evergreen:
 "Inside My $160 Per Month Room In Ho Chi Minh City"
 "The $1 Lunch That Gets Me Through The Week"
 
-TIER 3 -- Contrast series (scale kenh):
+TIER 3 -- Contrast series (scale kênh):
 "$5 vs $50 -- Same Day In Saigon"
 "Cheap Neighborhood vs Luxury Complex: Same City"
 
-CHON EPISODE 1:
+CHỌN EPISODE 1:
 "I Live On $400 A Month In Saigon -- This Is My Real Life"
 
-LY DO: Broad du de hook nhieu nguoi,
-specific du de credible,
-title tu giai thich noi dung.
+LÝ DO: Broad đủ để hook nhiều người,
+specific đủ để credible,
+title tự giải thích nội dung.
 
-TIEU CHI CHON EPISODE:
->> Co it nhat 1 con so cu the trong title
->> Co the quay trong 1 ngay
->> Co it nhat 1 contrast moment
->> Nguoi nuoc ngoai thay to mo`
+TIÊU CHÍ CHỌN EPISODE:
+>> Có ít nhất 1 con số cụ thể trong title
+>> Có thể quay trong 1 ngày
+>> Có ít nhất 1 contrast moment
+>> Người nước ngoài thấy tò mò`
       },
       {
         title:"Research & Location Scouting", tag:"RESEARCH",
-        detail:`SCOUT TRUOC NGAY QUAY -- bat buoc
+        detail:`SCOUT TRƯỚC NGÀY QUAY -- bắt buộc
 
-6 LOAI LOCATION CAN CO:
+6 LOẠI LOCATION CẦN CÓ:
 
-[1] Cho sang dia phuong (cho uot, khong phai Coopmart)
-[2] Xe day / via he street food (it nhat 2 xe khac nhau)
-[3] Phong tro / hem nho gan nha
-[4] 1 dia diem contrast: mall, khu Phu My Hung,
-    hoac bat ky khu hien dai nao gan nha
-[5] Cong vien hoac via he de ngoi buoi toi
-[6] Duong di lam / duong quen thuoc
+[1] Chợ sáng địa phương (chợ ướt, không phải Coopmart)
+[2] Xe đẩy / vỉa hè street food (ít nhất 2 xe khác nhau)
+[3] Phòng trọ / hẻm nhỏ gần nhà
+[4] 1 địa điểm contrast: mall, khu Phú Mỹ Hưng,
+    hoặc bất kỳ khu hiện đại nào gần nhà
+[5] Công viên hoặc vỉa hè để ngồi buổi tối
+[6] Đường đi làm / đường quen thuộc
 
-KHI SCOUT, GHI LAI:
-- Gio tot nhat de quay (anh sang, dong nguoi)
-- Gia cua cac mon an se mua
-- Ten mon ca tieng Viet lan tieng Anh
-- Co ai se phan doi quay khong?
-- Khoang cach di chuyen giua cac diem
+KHI SCOUT, GHI LẠI:
+- Giờ tốt nhất để quay (ánh sáng, đông người)
+- Giá của các món ăn sẽ mua
+- Tên món cả tiếng Việt lẫn tiếng Anh
+- Có ai sẽ phản đối quay không?
+- Khoảng cách di chuyển giữa các điểm
 
 Q7 SPECIFIC:
-Contrast tot nhat: Khu Phu My Hung vs cho Tan My
-SC VivoCity neu can mall shot
+Contrast tốt nhất: Khu Phú Mỹ Hưng vs chợ Tân Mỹ
+SC VivoCity nếu cần mall shot
 
-Q12 / THU DUC SPECIFIC:
-Bat ky Vincom nao vs cho dia phuong gan nha
-Khu DHQG Thu Duc co nhieu canh sinh vien
-+ local mix tot`
+Q12 / THỦ ĐỨC SPECIFIC:
+Bất kỳ Vincom nào vs chợ địa phương gần nhà
+Khu ĐHQG Thủ Đức có nhiều cảnh sinh viên
++ local mix tốt`
       },
       {
-        title:"Viet Script -- Nguyen tac vang", tag:"SCRIPT",
-        detail:`VIET SCRIPT TRUOC KHI QUAY
-(Sau do chinh lai theo footage -- khong phai sau khi quay moi viet)
+        title:"Viết Script -- Nguyên tắc vàng", tag:"SCRIPT",
+        detail:`VIẾT SCRIPT TRƯỚC KHI QUAY
+(Sau đó chỉnh lại theo footage -- không phải sau khi quay mới viết)
 
-TAI SAO PHAI VIET TRUOC?
->> Biet minh can quay canh gi
->> Biet chi tiet nao can capture (gia tien, close-up gi)
->> Tranh ve nha thieu footage
->> Voiceover da san sang, khong mat 3 ngay viet sau
+TẠI SAO PHẢI VIẾT TRƯỚC?
+>> Biết mình cần quay cảnh gì
+>> Biết chi tiết nào cần capture (giá tiền, close-up gì)
+>> Tránh về nhà thiếu footage
+>> Voiceover đã sẵn sàng, không mất 3 ngày viết sau
 
-STRUCTURE CHUAN (15-18 phut):
+STRUCTURE CHUẨN (15-18 phút):
 [0:00 - 0:25]  HOOK -- Type 3 Universal Feeling
-[0:25 - 1:00]  SETUP -- Ten + so tien + 1 cau ve cuoc song
-[1:00 - 4:00]  MORNING -- Cho / an sang / khoi dau ngay
-[4:00 - 8:00]  MID-DAY -- Hoat dong chinh + budget breakdown
+[0:25 - 1:00]  SETUP -- Tên + số tiền + 1 câu về cuộc sống
+[1:00 - 4:00]  MORNING -- Chợ / ăn sáng / khởi đầu ngày
+[4:00 - 8:00]  MID-DAY -- Hoạt động chính + budget breakdown
 [8:00 - 12:00] AFTERNOON -- Contrast moment + reflection
-[12:00-16:00]  EVENING -- Street food + cong vien / ve nha
-[16:00-17:30]  REFLECTION -- Honest insight, khong tich cuc gia
-[17:30-18:00]  OUTRO -- Cau hoi cho nguoi xem
+[12:00-16:00]  EVENING -- Street food + công viên / về nhà
+[16:00-17:30]  REFLECTION -- Honest insight, không tích cực giả
+[17:30-18:00]  OUTRO -- Câu hỏi cho người xem
 
-NGUYEN TAC DO DAI:
-- Hook: KHONG QUA 25 giay
-- Budget breakdown: KHONG QUA 90 giay
-- Moi activity block: 2-4 phut
-- Reflection cuoi: 90 giay - 2 phut
-- Cau ket: 1-2 cau thoi`
+NGUYÊN TẮC ĐỘ DÀI:
+- Hook: KHÔNG QUÁ 25 giây
+- Budget breakdown: KHÔNG QUÁ 90 giây
+- Mỗi activity block: 2-4 phút
+- Reflection cuối: 90 giây - 2 phút
+- Câu kết: 1-2 câu thôi`
       },
       {
-        title:"Tone & Voice -- Khong duoc sai", tag:"TONE",
-        detail:`TONE = THU KHAN GIA NHO SAU KHI QUEN NOI DUNG
+        title:"Tone & Voice -- Không được sai", tag:"TONE",
+        detail:`TONE = THỨ KHÁN GIẢ NHỚ SAU KHI QUÊN NỘI DUNG
 
-TONE MUC TIEU:
+TONE MỤC TIÊU:
 Calm + Honest + Slightly tired + But not defeated.
-(Binh than + That + Hoi met moi + Nhung chua bo cuoc)
+(Bình thản + Thật + Hơi mệt mỏi + Nhưng chưa bỏ cuộc)
 
-VIET NHU THE NAY:
-- Cau ngan. Khong qua 15 tu / cau.
-- So cu the: "sixty-three thousand dong"
-  khong phai "a little money"
-- Quan sat khong phan xet:
+VIẾT NHƯ THẾ NÀY:
+- Câu ngắn. Không quá 15 từ / câu.
+- Số cụ thể: "sixty-three thousand dong"
+  không phải "a little money"
+- Quan sát không phán xét:
   "She has been here for ten years." (OK)
-  "She is such a hardworking person!" (KHONG OK)
-- Cam xuc that, khong melodrama:
+  "She is such a hardworking person!" (KHÔNG OK)
+- Cảm xúc thật, không melodrama:
   "It is simple. But today, simple is enough."
-- Humor nhe, self-aware:
+- Humor nhẹ, self-aware:
   "I probably look like a tourist right now."
   "My doctor would not like this.
    I hope he does not watch YouTube."
 
-TUYET DOI TRANH:
+TUYỆT ĐỐI TRÁNH:
 - "Vietnam is so beautiful!" -- tourist cliche
 - "I can't believe how cheap this is!" -- condescending
 - "I am so grateful for this simple life" -- fake positivity
-- Phan xet ngheo hoac giau
-- Giai thich qua nhieu
-- Cau cam than: "Wow!", "Amazing!", "Incredible!"
-- Tu thuong hai: "Poor me", "Life is so hard"
+- Phán xét nghèo hoặc giàu
+- Giải thích quá nhiều
+- Câu cảm thán: "Wow!", "Amazing!", "Incredible!"
+- Tự thương hại: "Poor me", "Life is so hard"
 
-GIONG NARRATOR -- KHONG PHAI VLOGGER:
+GIỌNG NARRATOR -- KHÔNG PHẢI VLOGGER:
 Vlogger:  "Okay guys so today I'm going to..."
 Narrator: "It is six thirty. The city is already moving."
->> Narrator noi ve trai nghiem voi khoang cach
->> Vlogger noi ve ban than dang lam gi`
+>> Narrator nói về trải nghiệm với khoảng cách
+>> Vlogger nói về bản thân đang làm gì`
       }
     ]
   },
@@ -738,146 +738,146 @@ Narrator: "It is six thirty. The city is already moving."
     id:5, icon:"FILM", title:"PRODUCTION", subtitle:"Quay Video", color:"#0EA5E9",
     steps:[
       {
-        title:"4 loai Shot -- moi canh phai du", tag:"SHOTS",
-        detail:`MOI LOCATION = 4 LOAI SHOT -- thieu 1 la thieu
+        title:"4 loại Shot -- mỗi cảnh phải đủ", tag:"SHOTS",
+        detail:`MỖI LOCATION = 4 LOẠI SHOT -- thiếu 1 là thiếu
 
-[1] ESTABLISHING SHOT (10-15 giay)
->> Wide shot: toan canh khu vuc
->> Muc dich: nguoi xem biet minh dang o dau
->> Quay tu xa, de thay boi canh day du
->> Khong can ban xuat hien trong shot nay
+[1] ESTABLISHING SHOT (10-15 giây)
+>> Wide shot: toàn cảnh khu vực
+>> Mục đích: người xem biết mình đang ở đâu
+>> Quay từ xa, để thấy bối cảnh đầy đủ
+>> Không cần bạn xuất hiện trong shot này
 
-[2] ACTIVITY SHOT (15-30 giay)
->> Medium shot: ban dang lam gi
->> Di bo, ngoi an, tra tien, nhin do
->> Candid tot hon posed rat nhieu
->> De camera chay, dung nhin vao lens
+[2] ACTIVITY SHOT (15-30 giây)
+>> Medium shot: bạn đang làm gì
+>> Đi bộ, ngồi ăn, trả tiền, nhìn đồ
+>> Candid tốt hơn posed rất nhiều
+>> Để camera chạy, đừng nhìn vào lens
 
-[3] DETAIL SHOT -- QUAN TRONG NHAT
->> Close-up: mon an, to tien, bien gia,
-   tay nguoi ban, khoi boc tu chao
->> Day la shot tao ra cam giac "o do"
->> It nhat 5-7 giay moi close-up
->> Khong can ban trong frame
+[3] DETAIL SHOT -- QUAN TRỌNG NHẤT
+>> Close-up: món ăn, tờ tiền, biển giá,
+   tay người bán, khói bốc từ chảo
+>> Đây là shot tạo ra cảm giác "ở đó"
+>> Ít nhất 5-7 giây mỗi close-up
+>> Không cần bạn trong frame
 
 [4] REACTION SHOT
->> Mat ban khi an / khi thay gia / khi ngac nhien
->> Khong can noi -- facial expression du roi
->> Day la shot se dung de che jump cuts khi edit
->> Quay nhieu hon ban nghi can
+>> Mặt bạn khi ăn / khi thấy giá / khi ngạc nhiên
+>> Không cần nói -- facial expression đủ rồi
+>> Đây là shot sẽ dùng để che jump cuts khi edit
+>> Quay nhiều hơn bạn nghĩ cần
 
-QUAN TRONG:
-Quay DU gap 3 lan footage can.
-Se khong co lan thu 2 quay lai
-cung khoanh khac do.`
+QUAN TRỌNG:
+Quay ĐỦ gấp 3 lần footage cần.
+Sẽ không có lần thứ 2 quay lại
+cùng khoảnh khắc đó.`
       },
       {
-        title:"B-Roll Checklist day du", tag:"B-ROLL",
-        detail:`B-ROLL CHECKLIST -- tick truoc khi ve
+        title:"B-Roll Checklist đầy đủ", tag:"B-ROLL",
+        detail:`B-ROLL CHECKLIST -- tick trước khi về
 
-MORNING (6-8am -- anh sang dep nhat):
-[ ] Duong pho luc sang som -- wide shot
-[ ] Xe may dong duc hoac hem yen tinh
-[ ] Nguoi ban hang rong / mo quan
-[ ] Ly tra / ca phe tren ban (close-up)
-[ ] Tay ban cam tien hoac vi (close-up)
+MORNING (6-8am -- ánh sáng đẹp nhất):
+[ ] Đường phố lúc sáng sớm -- wide shot
+[ ] Xe máy đông đúc hoặc hẻm yên tĩnh
+[ ] Người bán hàng rong / mở quán
+[ ] Ly trà / cà phê trên bàn (close-up)
+[ ] Tay bạn cầm tiền hoặc ví (close-up)
 
-FOOD (close-up la vua):
-[ ] Tay nguoi ban dang nau / che bien -- close-up
-[ ] Khoi boc tu chao / noi
-[ ] Tien trao -- nhan (close-up that gan)
-[ ] Bien gia -- doc duoc so tien ro rang
-[ ] Mat ban an mieng dau tien -- reaction
-[ ] To / dia thuc an -- top-down hoac side angle
+FOOD (close-up là vua):
+[ ] Tay người bán đang nấu / chế biến -- close-up
+[ ] Khói bốc từ chảo / nồi
+[ ] Tiền trao -- nhận (close-up thật gần)
+[ ] Biển giá -- đọc được số tiền rõ ràng
+[ ] Mặt bạn ăn miếng đầu tiên -- reaction
+[ ] Tô / dĩa thức ăn -- top-down hoặc side angle
 
 NEIGHBORHOOD:
-[ ] Hem nho -- medium va wide
-[ ] Day dien chang chit -- look up shot
-[ ] Nguoi ngoi nghi via he
-[ ] Xe may chor do cong kenh
-[ ] Tuong cu / son bong trai -- texture shot
+[ ] Hẻm nhỏ -- medium và wide
+[ ] Dây điện chằng chịt -- look up shot
+[ ] Người ngồi nghỉ vỉa hè
+[ ] Xe máy chở đồ cồng kềnh
+[ ] Tường cũ / sơn bong tróc -- texture shot
 
 CONTRAST:
-[ ] Bien hieu mall / khu giau -- wide
-[ ] Cua hang dat tien tu ben ngoai
-[ ] Ban dung ben ngoai mall -- khong vao
-[ ] Gia menu / price tag dat (close-up)
+[ ] Biển hiệu mall / khu giàu -- wide
+[ ] Cửa hàng đắt tiền từ bên ngoài
+[ ] Bạn đứng bên ngoài mall -- không vào
+[ ] Giá menu / price tag đắt (close-up)
 
 EVENING:
-[ ] Den duong / den xe -- bokeh
-[ ] Street food cart thap den vang
-[ ] Cong vien -- nguoi di dao, tre em choi
-[ ] Canh ve nha -- duong quen thuoc`
+[ ] Đèn đường / đèn xe -- bokeh
+[ ] Street food cart thắp đèn vàng
+[ ] Công viên -- người đi dạo, trẻ em chơi
+[ ] Cảnh về nhà -- đường quen thuộc`
       },
       {
         title:"Camera & Gear Setup", tag:"GEAR",
-        detail:`KHONG CAN MAY XIN -- DIEN THOAI LA DU
+        detail:`KHÔNG CẦN MÁY XỊN -- ĐIỆN THOẠI LÀ ĐỦ
 
-DIEN THOAI -- OK neu:
-- Camera sau, khong phai selfie camera
-- 4K 30fps hoac 1080p 60fps
-- Tat HDR video
-- TAT beauty filter / AI enhancement
-- Manual exposure neu co the
+ĐIỆN THOẠI -- OK nếu:
+- Camera sau, không phải selfie camera
+- 4K 30fps hoặc 1080p 60fps
+- Tắt HDR video
+- TẮT beauty filter / AI enhancement
+- Manual exposure nếu có thể
 
-THIET BI BO SUNG ($0 - $30):
-- Gimbal: tot nhat -- on dinh khi di bo
-  Neu khong co: cam 2 tay, khuy tay sat nguoi
-- Power bank: bat buoc -- quay ca ngay het pin
-- Clip-on mic: optional nhung tot cho ambient sound
-  (dung de thu tieng nen, khong can thu voice)
+THIẾT BỊ BỔ SUNG ($0 - $30):
+- Gimbal: tốt nhất -- ổn định khi đi bộ
+  Nếu không có: cầm 2 tay, khuỷu tay sát người
+- Power bank: bắt buộc -- quay cả ngày hết pin
+- Clip-on mic: optional nhưng tốt cho ambient sound
+  (dùng để thu tiếng nền, không cần thu voice)
 
 EXPOSURE TRICK:
-De brighter hon 1 stop so voi "dung"
->> De pull down khi edit hon la push up tu toi
+Để brighter hơn 1 stop so với "đúng"
+>> Dễ pull down khi edit hơn là push up từ tối
 
 FRAMING RULES:
-- Rule of thirds -- dung center moi thu
-- Headroom: khoang trong tren dau vua du
-- Walking shots: quay truoc mat, khong phai sau lung
-- Food shots: angle 30-45 do tot hon top-down
+- Rule of thirds -- đừng center mọi thứ
+- Headroom: khoảng trống trên đầu vừa đủ
+- Walking shots: quay trước mặt, không phải sau lưng
+- Food shots: angle 30-45 độ tốt hơn top-down
 
 AUDIO:
-KHONG CAN thu voice khi quay
-(se dung 11Labs voiceover)
-NHUNG: chay mic de thu ambient sound rieng
->> 30 giay tieng cho, tieng xe, tieng nau an
->> Layer vao video sau de tao "you are there" feeling`
+KHÔNG CẦN thu voice khi quay
+(sẽ dùng 11Labs voiceover)
+NHƯNG: chạy mic để thu ambient sound riêng
+>> 30 giây tiếng chợ, tiếng xe, tiếng nấu ăn
+>> Layer vào video sau để tạo "you are there" feeling`
       },
       {
-        title:"Quay khong awkward", tag:"TIPS",
-        detail:`LAM SAO QUAY GIUA DAM DONG MA KHONG KY?
+        title:"Quay không awkward", tag:"TIPS",
+        detail:`LÀM SAO QUAY GIỮA ĐÁM ĐÔNG MÀ KHÔNG KỲ?
 
-TRUOC KHI QUAY:
->> Quan sat khu vuc 5 phut truoc
->> Mua do / order that truoc, roi moi quay
->> Gat dau / mim cuoi voi nguoi ban
-   truoc khi rut dien thoai ra
->> Hoi "duoc khong?" = 90% nguoi dong y
-   neu ban da la khach
+TRƯỚC KHI QUAY:
+>> Quan sát khu vực 5 phút trước
+>> Mua đồ / order thật trước, rồi mới quay
+>> Gật đầu / mỉm cười với người bán
+   trước khi rút điện thoại ra
+>> Hỏi "được không?" = 90% người đồng ý
+   nếu bạn đã là khách
 
-KY THUAT KHONG BI CHU Y:
->> Phone o tam nguc -- khong gio len ngang mat
->> Gia vo xem anh / nhan tin trong khi thuc ra dang quay
->> Quay wide shot tu xa truoc, close-up sau
->> De camera chay lien tuc, khong bam stop bam play
-   (tu nhien hon, bat duoc candid moments)
+KỸ THUẬT KHÔNG BỊ CHÚ Ý:
+>> Phone ở tầm ngực -- không giơ lên ngang mặt
+>> Giả vờ xem ảnh / nhắn tin trong khi thực ra đang quay
+>> Quay wide shot từ xa trước, close-up sau
+>> Để camera chạy liên tục, không bấm stop bấm play
+   (tự nhiên hơn, bắt được candid moments)
 
-NHUNG CANH KHONG NEN QUAY:
->> Tre em -- khong co phu huynh cho phep ro rang
->> Ben trong chua / nha tho -- hoi truoc
->> Nguoi dang cai nhau / xung dot
->> Giay to / thong tin ca nhan
+NHỮNG CẢNH KHÔNG NÊN QUAY:
+>> Trẻ em -- không có phụ huynh cho phép rõ ràng
+>> Bên trong chùa / nhà thờ -- hỏi trước
+>> Người đang cãi nhau / xung đột
+>> Giấy tờ / thông tin cá nhân
 
-KHI NGUOI BAN KHONG MUON QUAY:
->> Dung ngay, khong tranh luan
->> Xin loi ngan, mua do roi di
->> Quay establishing shot tu xa la du context
+KHI NGƯỜI BÁN KHÔNG MUỐN QUAY:
+>> Dừng ngay, không tranh luận
+>> Xin lỗi ngắn, mua đồ rồi đi
+>> Quay establishing shot từ xa là đủ context
 
 GOLDEN TIP:
-Ngay dau quay: ban se ngai. Do la binh thuong.
-Video 3-4: se tu nhien hon nhieu.
-Cu bat dau -- awkwardness se tu bien mat.`
+Ngày đầu quay: bạn sẽ ngại. Đó là bình thường.
+Video 3-4: sẽ tự nhiên hơn nhiều.
+Cứ bắt đầu -- awkwardness sẽ tự biến mất.`
       }
     ]
   },
@@ -886,20 +886,20 @@ Cu bat dau -- awkwardness se tu bien mat.`
     steps:[
       {
         title:"Finalize Script cho 11Labs", tag:"PREP",
-        detail:`SAU KHI CO FOOTAGE -- CHINH SCRIPT
+        detail:`SAU KHI CÓ FOOTAGE -- CHỈNH SCRIPT
 
-BUOC 1: Xem toan bo footage, note timestamp canh dep
-BUOC 2: Chinh script theo footage that (khong theo plan goc)
-BUOC 3: Format lai dung cho 11Labs
+BƯỚC 1: Xem toàn bộ footage, note timestamp cảnh đẹp
+BƯỚC 2: Chỉnh script theo footage thật (không theo plan gốc)
+BƯỚC 3: Format lại đúng cho 11Labs
 
-FORMAT CHUAN -- 11LABS DOC TOT:
+FORMAT CHUẨN -- 11LABS ĐỌC TỐT:
 
-Moi cau 1 dong rieng.
-Dung dau cham de tao pause ngan.
-Dung [PAUSE] cho khoang lang 1.5-2 giay.
-KHONG viet tat -- 11Labs doc sai:
+Mỗi câu 1 dòng riêng.
+Dùng dấu chấm để tạo pause ngắn.
+Dùng [PAUSE] cho khoảng lặng 1.5-2 giây.
+KHÔNG viết tắt -- 11Labs đọc sai:
 
-SAIKHONG TOT    --> DUNG
+SAI / KHÔNG TỐT  --> ĐÚNG
 $1           --> one dollar
 VND          --> Vietnamese dong
 30k          --> thirty thousand dong
@@ -909,81 +909,81 @@ Q7           --> District Seven
 banh mi (VN) --> banh mi (phonetic)
 pho (VN)     --> pho (phonetic)
 
-CHIA DOAN:
-Chia script thanh doan 200-300 tu.
-De re-gen neu 1 doan bi loi.
-Dat ten: 01_hook.mp3, 02_setup.mp3...
+CHIA ĐOẠN:
+Chia script thành đoạn 200-300 từ.
+Để re-gen nếu 1 đoạn bị lỗi.
+Đặt tên: 01_hook.mp3, 02_setup.mp3...
 
-TEST TRUOC:
-Gen 1 doan ngan 50 tu truoc.
-Nghe lai -- dieu chinh settings
-truoc khi gen ca script.`
+TEST TRƯỚC:
+Gen 1 đoạn ngắn 50 từ trước.
+Nghe lại -- điều chỉnh settings
+trước khi gen cả script.`
       },
       {
-        title:"11Labs Settings Toi Uu", tag:"11LABS",
-        detail:`VOICE SELECTION -- quan trong nhat
+        title:"11Labs Settings Tối Ưu", tag:"11LABS",
+        detail:`VOICE SELECTION -- quan trọng nhất
 
-VOICES PHU HOP NHAT:
+VOICES PHÙ HỢP NHẤT:
 "Adam"   -- natural, slightly tired, documentary feel (BEST)
 "Antoni" -- warmer, slightly younger
 "Charlie"-- clear, neutral accent
-TRANH: voices qua enthusiastic, qua bright, qua podcast-y
+TRÁNH: voices quá enthusiastic, quá bright, quá podcast-y
 
 SETTINGS:
 Model:           eleven_multilingual_v2
 Stability:       0.50 - 0.60
-                 (thap = tu nhien | cao = robotic)
+                 (thấp = tự nhiên | cao = robotic)
 Similarity Boost:0.70 - 0.75
-Style:           0 (de natural)
-Speaker Boost:   BAT
+Style:           0 (để natural)
+Speaker Boost:   BẬT
 
 WORKFLOW:
-[1] Gen tung doan 200-300 tu
-[2] Gen 2-3 lan cho cau QUAN TRONG
-    chon take tot nhat
+[1] Gen từng đoạn 200-300 từ
+[2] Gen 2-3 lần cho câu QUAN TRỌNG
+    chọn take tốt nhất
 [3] Download MP3 192kbps
-[4] Dat ten file theo thu tu:
+[4] Đặt tên file theo thứ tự:
     01_hook.mp3, 02_setup.mp3...
 
 PRO TIPS:
-- Cau ngan, dau cham o cuoi = pause tu nhien hon
-- [PAUSE] = 11Labs nghi khoang 1.5 giay
-- Them "..." cuoi cau = giong ha xuong tu nhien
-- Neu 11Labs doc sai ten rieng: viet phonetic
-  "Phu My Hung" thay vi chu Viet co dau`
+- Câu ngắn, dấu chấm ở cuối = pause tự nhiên hơn
+- [PAUSE] = 11Labs nghỉ khoảng 1.5 giây
+- Thêm "..." cuối câu = giọng hạ xuống tự nhiên
+- Nếu 11Labs đọc sai tên riêng: viết phonetic
+  "Phu My Hung" thay vì chữ Việt có dấu`
       },
       {
         title:"Audio Layering -- 3 tracks", tag:"AUDIO",
-        detail:`3 TRACKS AUDIO -- thieu 1 la video flat
+        detail:`3 TRACKS AUDIO -- thiếu 1 là video flat
 
 TRACK 1 -- VOICEOVER (11Labs)
 Volume: 100%
-Day la main track. Tat ca tracks khac mix duoi day.
+Đây là main track. Tất cả tracks khác mix dưới đây.
 
 TRACK 2 -- AMBIENT SOUND
 Volume: 15-20%
-Tieng moi truong that -- tao cam giac "you are there"
-- Thu khi quay: de mic chay 30-60 giay moi dia diem
-- Neu khong thu duoc: freesound.org
+Tiếng môi trường thật -- tạo cảm giác "you are there"
+- Thu khi quay: để mic chạy 30-60 giây mỗi địa điểm
+- Nếu không thu được: freesound.org
   Keywords: "vietnam street", "saigon traffic",
   "wet market ambient", "street food cooking"
-- Fade in/out moi khi chuyen canh
+- Fade in/out mỗi khi chuyển cảnh
 
 TRACK 3 -- BACKGROUND MUSIC
 Volume: 8-12%
-Nhac nen tao mood -- KHONG duoc lan at voice
+Nhạc nền tạo mood -- KHÔNG được lấn át voice
 - Style: lo-fi, ambient, documentary
-- Nguon free:
+- Nguồn free:
   uppbeat.io -- "vietnam", "city life", "documentary"
   YouTube Audio Library -- "chill", "ambient"
-  Epidemic Sound (tra phi, xung dang cho long-term)
-- Khong dung nhac Viet --
-  khan gia quoc te can neutral
+  Epidemic Sound (trả phí, xứng đáng cho long-term)
+- Không dùng nhạc Việt --
+  khán giả quốc tế cần neutral
 
 MASTER MIX TEST:
->> Nghe bang tai nghe + nghe bang dien thoai speaker
->> Voice phai clear tren ca 2
->> Nhac phai "cam nhan duoc" nhung khong "nghe thay ro"`
+>> Nghe bằng tai nghe + nghe bằng điện thoại speaker
+>> Voice phải clear trên cả 2
+>> Nhạc phải "cảm nhận được" nhưng không "nghe thấy rõ"`
       }
     ]
   },
@@ -1003,33 +1003,33 @@ Track A3: Background music
 PACING RULES:
 
 HOOK (0-25s):
-Cut nhanh moi 2-3 giay. Nhieu visual.
+Cut nhanh mỗi 2-3 giây. Nhiều visual.
 
 SETUP (25s-1m):
-Slow down. 1 canh dai 5-8 giay.
+Slow down. 1 cảnh dài 5-8 giây.
 
 ACTIVITY BLOCKS:
-Voiceover DAN, footage THEO.
-Khong de footage chay khong co voice > 3 giay.
+Voiceover DẪN, footage THEO.
+Không để footage chạy không có voice > 3 giây.
 
 REFLECTION:
-1 canh dai, khong cut. Voice fills.
+1 cảnh dài, không cut. Voice fills.
 
 OUTRO:
-Cut tro lai nhanh hon. Energy len.
+Cut trở lại nhanh hơn. Energy lên.
 
-CAC QUY TAC CU THE:
-- Khoang im lang toi da: 1.5 giay
-  (tru intentional pause)
-- B-roll che khi can jump cut --
-  khong de cut tho
-- Cut TRUOC khi action ket thuc
-- Moi canh toi thieu 3 giay de nao xu ly kip
+CÁC QUY TẮC CỤ THỂ:
+- Khoảng im lặng tối đa: 1.5 giây
+  (trừ intentional pause)
+- B-roll che khi cần jump cut --
+  không để cut thô
+- Cut TRƯỚC khi action kết thúc
+- Mỗi cảnh tối thiểu 3 giây để não xử lý kịp
 
 SOFTWARE:
-CapCut PC  -- free, de nhat, du tinh nang
+CapCut PC  -- free, dễ nhất, đủ tính năng
 DaVinci    -- free, professional
-Premiere   -- neu da quen`
+Premiere   -- nếu đã quen`
       },
       {
         title:"Graphics & Text On-Screen", tag:"GRAPHICS",
@@ -1038,86 +1038,86 @@ Premiere   -- neu da quen`
 PRICE TAGS:
 - Style: bold white text, black drop shadow
 - Format: "25,000d (~$1)"
-- Timing: xuat hien DUNG LUC voice doc so tien
-- Duration: 2-3 giay, fade out nhe
-- Position: lower third (1/3 duoi man hinh)
+- Timing: xuất hiện ĐÚNG LÚC voice đọc số tiền
+- Duration: 2-3 giây, fade out nhẹ
+- Position: lower third (1/3 dưới màn hình)
 
 LOCATION TAGS:
 - "Local Market -- 7:00 AM"
 - "District 7, Ho Chi Minh City"
-- Font: nho hon price tags, goc tren trai
+- Font: nhỏ hơn price tags, góc trên trái
 
-BUDGET TRACKER -- VIRAL ELEMENT QUAN TRONG NHAT:
-- Goc tren phai man hinh
+BUDGET TRACKER -- VIRAL ELEMENT QUAN TRỌNG NHẤT:
+- Góc trên phải màn hình
 - Format: "Today: $5.00"
-  Sau moi lan mua: "Remaining: $4.10"
-  Tiep: "Remaining: $3.25"
-  Cuoi ngay: "Spent: $4.65 / $5.00"
-- Mau xanh la --> vang --> do khi gan het
-- Nguoi xem KHONG THE khong theo doi so nay
+  Sau mỗi lần mua: "Remaining: $4.10"
+  Tiếp: "Remaining: $3.25"
+  Cuối ngày: "Spent: $4.65 / $5.00"
+- Màu xanh lá --> vàng --> đỏ khi gần hết
+- Người xem KHÔNG THỂ không theo dõi số này
 
 FONT STYLE:
-- Titles / Price: Bebas Neue hoac Impact
-- Location / Info: Inter hoac DM Sans
-- Size: du to doc duoc tren dien thoai nho
+- Titles / Price: Bebas Neue hoặc Impact
+- Location / Info: Inter hoặc DM Sans
+- Size: đủ to đọc được trên điện thoại nhỏ
 
-TRANH:
-- Qua nhieu mau sac
-- Animation phuc tap, distracting
-- Text che mat canh quan trong`
+TRÁNH:
+- Quá nhiều màu sắc
+- Animation phức tạp, distracting
+- Text che mất cảnh quan trọng`
       },
       {
         title:"Color Grading", tag:"COLOR",
         detail:`LOOK TARGET:
 Warm + Slightly Desaturated + Authentic
 
-KHONG can cinematic qua -- giu authentic feel.
-Han Life mau gan tu nhien = nguoi xem tin hon.
+KHÔNG cần cinematic quá -- giữ authentic feel.
+Han Life màu gần tự nhiên = người xem tin hơn.
 
-CACH NHANH NHAT:
-CapCut --> Filter --> "Film" hoac "Documentary"
-Intensity: 40-60% (khong full)
->> Tiet kiem 2 gio chinh tay
+CÁCH NHANH NHẤT:
+CapCut --> Filter --> "Film" hoặc "Documentary"
+Intensity: 40-60% (không full)
+>> Tiết kiệm 2 giờ chỉnh tay
 
-THU CONG (DaVinci Resolve):
-Color Temp:  +100 to +150K (warm, goi nang Saigon)
+THỦ CÔNG (DaVinci Resolve):
+Color Temp:  +100 to +150K (warm, gợi nắng Saigon)
 Saturation:  -8 to -12 (slightly muted, not grey)
-Lift:        +2 to +4 (khong de qua toi)
+Lift:        +2 to +4 (không để quá tối)
 Contrast:    +10 to +15
-Highlights:  -10 (kiem soat overexposure)
+Highlights:  -10 (kiểm soát overexposure)
 
 LUT REFERENCES:
-- VSCO A6 hoac A4
+- VSCO A6 hoặc A4
 - Kodak Vision3 250D emulation
 - Fuji 400H
 
 CONSISTENCY:
-Ap dung 1 preset / LUT cho toan bo video.
-Dung de moi canh 1 mau khac nhau.
+Áp dụng 1 preset / LUT cho toàn bộ video.
+Đừng để mỗi cảnh 1 màu khác nhau.
 
-KIEM TRA CUOI:
->> Xem tren dien thoai (khong phai monitor)
->> Da nguoi trong tu nhien khong?
->> Do an trong ngon khong?
->> Canh toi (hem, toi) van nhin thay khong?`
+KIỂM TRA CUỐI:
+>> Xem trên điện thoại (không phải monitor)
+>> Da người trông tự nhiên không?
+>> Đồ ăn trông ngon không?
+>> Cảnh tối (hẻm, tối) vẫn nhìn thấy không?`
       },
       {
         title:"Thumbnail & Title & SEO", tag:"PUBLISH",
         detail:`THUMBNAIL FORMULA:
-[So tien to] + [Mat ban -- reaction ro] + [1-2 chu context]
+[Số tiền to] + [Mặt bạn -- reaction rõ] + [1-2 chữ context]
 
-VI DU CU THE:
-"$5/DAY" vang to + mat ban nhin to com + "SAIGON" nho hon
-"ALONE" trang bold + canh hem toi sau lung ban
-"$400/MONTH" do + mat ban nhin camera neutral
-"STUCK HERE" + canh chung cu / phong tro
+VÍ DỤ CỤ THỂ:
+"$5/DAY" vàng to + mặt bạn nhìn tô cơm + "SAIGON" nhỏ hơn
+"ALONE" trắng bold + cảnh hẻm tối sau lưng bạn
+"$400/MONTH" đỏ + mặt bạn nhìn camera neutral
+"STUCK HERE" + cảnh chung cư / phòng trọ
 
 THUMBNAIL RULES:
->> Chu toi da 5 tu
->> Face chiem > 30% dien tich
->> Contrast cao -- nhin ro o 120px (mobile size)
->> Background: canh that cua video, khong stock photo
->> Khong dung qua 3 mau chu
+>> Chữ tối đa 5 từ
+>> Face chiếm > 30% diện tích
+>> Contrast cao -- nhìn rõ ở 120px (mobile size)
+>> Background: cảnh thật của video, không stock photo
+>> Không dùng quá 3 màu chữ
 
 TITLE FORMULA:
 "I [Action] In Vietnam -- [Revelation / Number]"
@@ -1126,7 +1126,7 @@ TOP TITLES:
 "I Live On $400 A Month In Saigon"
 "A Day On $5 In Ho Chi Minh City"
 "What Low-Income Life In Vietnam Actually Looks Like"
-"Living Alone At [tuoi] In Saigon -- No Filter"
+"Living Alone At [tuổi] In Saigon -- No Filter"
 
 SEO TAGS (15 tags):
 vietnam, saigon, ho chi minh city, life in vietnam,
@@ -1164,8 +1164,8 @@ My alarm goes off and the city is already moving.
 That is one thing about Saigon --
 it never really sleeps.
 [PAUSE]
-I live in a small room in District [so quan].
-My name is [ten]. I am [tuoi] years old.
+I live in a small room in District [số quận].
+My name is [tên]. I am [tuổi] years old.
 I have been living like this for [X] years.
 [PAUSE]
 This is not a challenge I set for myself.
@@ -1176,7 +1176,7 @@ This is just Tuesday."
 "There is a market five minutes from my room.
 The vendors here know what time everyone shows up.
 [PAUSE]
-For breakfast I buy [ten mon].
+For breakfast I buy [tên món].
 [X] thousand dong. About [X] cents.
 [PAUSE]
 It is not the cheapest option. But it is close.
@@ -1185,7 +1185,7 @@ And it is honest."
 === BUDGET BREAKDOWN ===
 
 "Let me show you where the money actually goes.
-[show viet tay]
+[show viết tay]
 Four hundred dollars a month.
 [PAUSE]
 Rent: one hundred and sixty dollars.
@@ -1201,7 +1201,7 @@ Some months I can. Some months I cannot."
 === CONTRAST MOMENT ===
 
 "About twenty minutes from here
-there is [ten khu / mall].
+there is [tên khu / mall].
 [PAUSE]
 Same city. The streets are wider.
 The buildings are newer.
@@ -1220,7 +1220,7 @@ This is where I feel most like myself.
 [PAUSE]
 There is a cart on the corner that has been here
 every night for years.
-[ten mon]. [X] thousand dong.
+[tên món]. [X] thousand dong.
 [PAUSE]
 Street food in Saigon is not just cheap.
 For a lot of people here --
@@ -1229,9 +1229,9 @@ Simple. Fast. Honest."
 
 === REFLECTION ===
 
-"By the end of today I spent [tong].
+"By the end of today I spent [tổng].
 [PAUSE]
-[Dieu that nhat cua ngay -- viet sau khi quay xong]
+[Điều thật nhất của ngày -- viết sau khi quay xong]
 [PAUSE]
 Living on four hundred dollars a month
 in Ho Chi Minh City is not comfortable.
@@ -1253,75 +1253,75 @@ I will see you in the next one."`
       },
       {
         title:"Shooting Day Checklist", tag:"CHECKLIST",
-        detail:`NGAY TRUOC KHI QUAY:
-[ ] Script da viet xong -- in ra hoac save offline
-[ ] Locations da scout, biet gio tot nhat
-[ ] Ghi danh sach gia du kien cac mon se mua
-[ ] Sac day dien thoai + power bank
-[ ] Kiem tra storage (it nhat 20GB free)
-[ ] Cai CapCut / DaVinci tren may tinh neu chua co
+        detail:`NGÀY TRƯỚC KHI QUAY:
+[ ] Script đã viết xong -- in ra hoặc save offline
+[ ] Locations đã scout, biết giờ tốt nhất
+[ ] Ghi danh sách giá dự kiến các món sẽ mua
+[ ] Sạc đầy điện thoại + power bank
+[ ] Kiểm tra storage (ít nhất 20GB free)
+[ ] Cài CapCut / DaVinci trên máy tính nếu chưa có
 
-SANG NGAY QUAY:
-[ ] Day truoc 6am -- anh sang sang som khong lay lai duoc
-[ ] Mang tien mat nho: 20k, 50k, 100k
-[ ] Note app -- ghi gia NGAY khi mua
-[ ] Mac do binh thuong, khong can dep
+SÁNG NGÀY QUAY:
+[ ] Dậy trước 6am -- ánh sáng sáng sớm không lấy lại được
+[ ] Mang tiền mặt nhỏ: 20k, 50k, 100k
+[ ] Note app -- ghi giá NGAY khi mua
+[ ] Mặc đồ bình thường, không cần đẹp
 
 KHI QUAY:
-[ ] Moi location: Establishing -> Activity -> Detail -> Reaction
-[ ] Moi lan mua do: quay close-up tien + bien gia
-[ ] Thu ambient sound: 30-60 giay o moi dia diem
-[ ] Quay mat minh it nhat 5-6 lan trong ngay
-[ ] Budget tracker: ghi vao note sau moi lan chi tieu
-[ ] De camera chay dai -- dung bam stop qua som
+[ ] Mỗi location: Establishing -> Activity -> Detail -> Reaction
+[ ] Mỗi lần mua đồ: quay close-up tiền + biển giá
+[ ] Thu ambient sound: 30-60 giây ở mỗi địa điểm
+[ ] Quay mặt mình ít nhất 5-6 lần trong ngày
+[ ] Budget tracker: ghi vào note sau mỗi lần chi tiêu
+[ ] Để camera chạy dài -- đừng bấm stop quá sớm
 
 SAU KHI QUAY:
 [ ] Back up footage ngay (Google Photos / hard drive)
-[ ] Xem lai nhanh -- note footage nao dep nhat
-[ ] Update script theo footage that
-[ ] Gen voiceover 11Labs theo script da update
+[ ] Xem lại nhanh -- note footage nào đẹp nhất
+[ ] Update script theo footage thật
+[ ] Gen voiceover 11Labs theo script đã update
 
 PRE-UPLOAD:
-[ ] Video 15-20 phut
-[ ] Hook co so tien cu the trong 25 giay dau
-[ ] Budget tracker xuat hien du
-[ ] Thumbnail: face + so tien + max 5 chu
+[ ] Video 15-20 phút
+[ ] Hook có số tiền cụ thể trong 25 giây đầu
+[ ] Budget tracker xuất hiện đủ
+[ ] Thumbnail: face + số tiền + max 5 chữ
 [ ] Title: "I [X] In Vietnam" format
-[ ] Tags: 15 tags da chuan bi
+[ ] Tags: 15 tags đã chuẩn bị
 [ ] Chapters trong description
 
-48H SAU KHI DANG:
+48H SAU KHI ĐĂNG:
 [ ] Share: r/vietnam, r/solotravel, Vietnam Expats FB
-[ ] Reply tat ca comment trong 24h dau
-[ ] Pin 1 comment -- budget breakdown chi tiet hon
+[ ] Reply tất cả comment trong 24h đầu
+[ ] Pin 1 comment -- budget breakdown chi tiết hơn
 [ ] Check CTR:
-    < 3%  -> doi thumbnail ngay
-    3-6%  -> binh thuong
-    > 6%  -> thumbnail dang work tot`
+    < 3%  -> đổi thumbnail ngay
+    3-6%  -> bình thường
+    > 6%  -> thumbnail đang work tốt`
       },
       {
         title:"10 Episode Pipeline", tag:"PIPELINE",
-        detail:`PIPELINE 10 EPISODES DAU
+        detail:`PIPELINE 10 EPISODES ĐẦU
 
-EP 1 -- HERO VIDEO (lam ngay):
+EP 1 -- HERO VIDEO (làm ngay):
 "I Live On $400 A Month In Saigon"
 Hook: Type 3 Universal Feeling
 Format: Full day documentary
 
 EP 2 -- FOOD FOCUS:
 "I Ate Only Street Food For $5 In Ho Chi Minh City"
-Hook: Type 1 Specific Detail (gia mon dau tien)
-Format: Food journey ca ngay
+Hook: Type 1 Specific Detail (giá món đầu tiên)
+Format: Food journey cả ngày
 
 EP 3 -- APARTMENT:
 "Inside My $160 Per Month Room In Saigon"
-Hook: Type 2 In-Media-Res (dang ngoi trong phong)
+Hook: Type 2 In-Media-Res (đang ngồi trong phòng)
 Format: Tour + lifestyle
 
 EP 4 -- CONTRAST:
 "$5 vs $50 -- Same Day In Ho Chi Minh City"
 Hook: Type 4 Contrast
-Format: Buoi sang cheap / buoi chieu expensive
+Format: Buổi sáng cheap / buổi chiều expensive
 
 EP 5 -- WEEKEND:
 "What A Lonely Sunday Looks Like In Saigon"
@@ -1330,22 +1330,22 @@ Format: Day off slow life
 
 EP 6 -- COMMUTE:
 "I Commute 80 Minutes To Work In Saigon Every Day"
-Hook: Type 3 Universal (ai cung ghet commute)
+Hook: Type 3 Universal (ai cũng ghét commute)
 Format: Journey to work + reflection
 
 EP 7 -- MARKET:
 "I Spent $10 At A Local Vietnamese Market"
-Hook: Type 1 (gia dau tien mua duoc)
+Hook: Type 1 (giá đầu tiên mua được)
 Format: Wet market experience
 
 EP 8 -- EVENING:
 "Saigon After Dark -- Street Food Under $3"
-Hook: Type 2 (dang dung tai xe day toi)
+Hook: Type 2 (đang đứng tại xe đẩy tối)
 Format: Evening food walk
 
 EP 9 -- PAYDAY:
 "Payday In Vietnam: Where $400 Actually Goes"
-Hook: Type 5 (confession sang ngay luong)
+Hook: Type 5 (confession sáng ngày lương)
 Format: Budget breakdown + real spending
 
 EP 10 -- MILESTONE:
@@ -1359,116 +1359,116 @@ Format: Lessons learned, montage`
     id:9, icon:"$$$", title:"MONETIZE", subtitle:"AdSense + Sponsor", color:"#059669",
     steps:[
       {
-        title:"Con duong den monetization", tag:"ROADMAP",
+        title:"Con đường đến monetization", tag:"ROADMAP",
         detail:`YOUTUBE REQUIREMENTS:
 - 1,000 subscribers
-- 4,000 watch hours trong 12 thang
-  HOAC 10M Shorts views trong 90 ngay
+- 4,000 watch hours trong 12 tháng
+  HOẶC 10M Shorts views trong 90 ngày
 
-TIMELINE THUC TE:
+TIMELINE THỰC TẾ:
 
-THANG 1-2 (Videos 1-4):
->> Focus 100% vao content quality
->> Muc tieu: 200-500 subs
->> Dang 1 video / tuan
->> Khong nghi den tien giai doan nay
+THÁNG 1-2 (Videos 1-4):
+>> Focus 100% vào content quality
+>> Mục tiêu: 200-500 subs
+>> Đăng 1 video / tuần
+>> Không nghĩ đến tiền giai đoạn này
 
-THANG 3-4 (Videos 5-8):
+THÁNG 3-4 (Videos 5-8):
 >> Optimize: thumbnail, title, retention
->> Muc tieu: 500-1,500 subs
->> Bat dau de y analytics:
-   video nao co CTR cao nhat?
->> Double down on format dang work
+>> Mục tiêu: 500-1,500 subs
+>> Bắt đầu để ý analytics:
+   video nào có CTR cao nhất?
+>> Double down on format đang work
 
-THANG 5-6 (Videos 9-12):
->> Du dieu kien monetize neu tang truong tot
->> Muc tieu: 1,000-3,000 subs
->> Bat dau reach out sponsor nho
+THÁNG 5-6 (Videos 9-12):
+>> Đủ điều kiện monetize nếu tăng trưởng tốt
+>> Mục tiêu: 1,000-3,000 subs
+>> Bắt đầu reach out sponsor nhỏ
 >> Apply YouTube Partner Program
 
-REALISTIC REVENUE (khi dat 10K subs):
+REALISTIC REVENUE (khi đạt 10K subs):
 AdSense CPM cho Vietnam / SEA content: $3-8
-10K views/video x 4 videos/thang = 40K views
-= $120-320 / thang tu ads
+10K views/video x 4 videos/tháng = 40K views
+= $120-320 / tháng từ ads
 
-Voi English audience quoc te: CPM tang $8-15
-= $320-600 / thang`
+Với English audience quốc tế: CPM tăng $8-15
+= $320-600 / tháng`
       },
       {
         title:"Sponsor Strategy", tag:"SPONSOR",
-        detail:`LOAI SPONSOR PHU HOP NHAT:
+        detail:`LOẠI SPONSOR PHÙ HỢP NHẤT:
 
-TIER 1 -- Highest relevance (de close nhat):
+TIER 1 -- Highest relevance (dễ close nhất):
 - VPN services (NordVPN, ExpressVPN, Surfshark)
-  Budget travelers dung nhieu
-  $200-500 / integration khi dat 10K subs
+  Budget travelers dùng nhiều
+  $200-500 / integration khi đạt 10K subs
 - Language learning apps (Duolingo, Pimsleur)
-  Khan gia hoc tieng Viet / muon du lich VN
+  Khán giả học tiếng Việt / muốn du lịch VN
 - Travel insurance (SafetyWing, World Nomads)
   Expats + travelers in SEA
 
 TIER 2 -- Good fit:
 - Budgeting / transfer apps (Wise, Revolut)
-  Audience quan tam financial management
-- Affordable meal delivery apps tai VN
-- Local Vietnamese brands muon reach
+  Audience quan tâm financial management
+- Affordable meal delivery apps tại VN
+- Local Vietnamese brands muốn reach
   expat / foreign audience
 
 TIER 3 -- Avoid:
-- Luxury products -- khong match audience
-- Cryptocurrency -- qua risky cho reputation
-- Anything ban khong personally use
+- Luxury products -- không match audience
+- Cryptocurrency -- quá risky cho reputation
+- Anything bạn không personally use
 
-CACH REACH OUT:
-[1] Email truc tiep brand marketing / partnership team
-[2] Co media kit: subscribers, views/video, demographics
+CÁCH REACH OUT:
+[1] Email trực tiếp brand marketing / partnership team
+[2] Có media kit: subscribers, views/video, demographics
 [3] Pitch angle: "Your product + budget life in Vietnam"
-[4] Bat dau voi gifted partnership truoc
-    (nhan san pham free) -> paid deal sau
+[4] Bắt đầu với gifted partnership trước
+    (nhận sản phẩm free) -> paid deal sau
 
-QUAN TRONG:
-Chi sponsor thu ban that su dung duoc.
-Audience cua kenh authentic se
-nhay cam voi quang cao fake.
-1 bad sponsor deal = mat trust = mat kenh.`
+QUAN TRỌNG:
+Chỉ sponsor thứ bạn thật sự dùng được.
+Audience của kênh authentic sẽ
+nhạy cảm với quảng cáo fake.
+1 bad sponsor deal = mất trust = mất kênh.`
       },
       {
-        title:"Analytics -- Doc so dung cach", tag:"ANALYTICS",
-        detail:`5 METRICS QUAN TRONG NHAT
+        title:"Analytics -- Đọc số đúng cách", tag:"ANALYTICS",
+        detail:`5 METRICS QUAN TRỌNG NHẤT
 
 [1] CLICK-THROUGH RATE (CTR)
-Benchmark: 4-8% la healthy
-< 3%: Thumbnail / title co van de -- fix ngay
-> 8%: Rat tot -- nhan ban format nay
+Benchmark: 4-8% là healthy
+< 3%: Thumbnail / title có vấn đề -- fix ngay
+> 8%: Rất tốt -- nhân bản format này
 
 [2] AVERAGE VIEW DURATION (AVD)
 Benchmark: > 40% video length
-< 30%: Hook khong du manh hoac pacing te
-> 50%: Content dang work rat tot
+< 30%: Hook không đủ mạnh hoặc pacing tệ
+> 50%: Content đang work rất tốt
 
 [3] AUDIENCE RETENTION GRAPH
 Xem drop-off points:
-- Drop manh o 0-30s: Hook yeu
-- Drop o 2-3 phut: Setup qua dai
-- Drop deu deu: Pacing OK
-- Spike tang: canh do dac biet tot
-  -> lam nhieu hon
+- Drop mạnh ở 0-30s: Hook yếu
+- Drop ở 2-3 phút: Setup quá dài
+- Drop đều đều: Pacing OK
+- Spike tăng: cảnh đó đặc biệt tốt
+  -> làm nhiều hơn
 
 [4] TRAFFIC SOURCES
-- YouTube Search: Title / tags dang work
-- Suggested Videos: Algorithm dang push
-- External: Reddit / Facebook dang drive traffic
->> Double down vao source dang work nhat
+- YouTube Search: Title / tags đang work
+- Suggested Videos: Algorithm đang push
+- External: Reddit / Facebook đang drive traffic
+>> Double down vào source đang work nhất
 
 [5] SUBSCRIBER CONVERSION RATE
-Views chia New Subs = ty le chuyen doi
-< 0.5%: Video khong du compelling de sub
-> 2%: Content rat sticky
+Views chia New Subs = tỷ lệ chuyển đổi
+< 0.5%: Video không đủ compelling để sub
+> 2%: Content rất sticky
 
 WEEKLY REVIEW ROUTINE:
-Moi thu Hai: 15 phut xem analytics video tuan truoc.
-Hoi: Video nay te hon hay tot hon video truoc o diem nao?
-Ap dung 1 thay doi cho video tiep theo.`
+Mỗi thứ Hai: 15 phút xem analytics video tuần trước.
+Hỏi: Video này tệ hơn hay tốt hơn video trước ở điểm nào?
+Áp dụng 1 thay đổi cho video tiếp theo.`
       }
     ]
   }
