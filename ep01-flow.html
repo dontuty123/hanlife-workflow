@@ -289,6 +289,62 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:15px
 
 /* ── SCROLL SNAP FOR OPENED CARD ── */
 .step-card.open{scroll-margin-top:64px}
+
+/* ── INFO SECTIONS ── */
+.info-section{max-width:860px;margin:0 auto;padding:64px 24px 0}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.sec-head h2{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--text)}
+.sec-tag{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text3);border:1px solid var(--border);border-radius:100px;padding:3px 11px}
+.sec-rule{width:40px;height:2px;background:linear-gradient(90deg,var(--evening),transparent);margin-bottom:24px;margin-top:8px}
+
+/* Price grid */
+.price-grid{display:flex;flex-direction:column;gap:6px}
+.p-row{display:grid;grid-template-columns:2fr 1.6fr .9fr 1.5fr;border:1px solid var(--border);
+  border-radius:var(--rs);overflow:hidden;background:var(--surface);transition:border-color .2s}
+.p-row:hover{border-color:var(--border2)}
+.p-row.hd{background:rgba(255,255,255,.025)}
+.p-cell{padding:10px 14px;font-size:12.5px;color:var(--text2);border-right:1px solid var(--border)}
+.p-cell:last-child{border-right:none}
+.p-row.hd .p-cell{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.p-cell.nm{color:var(--text);font-weight:500}
+.p-cell.vn{color:#10B981;font-weight:600;font-family:var(--fh)}
+.p-cell.us{color:var(--text3)}
+.p-cell.cd{color:var(--evening);font-size:11px;font-family:monospace;letter-spacing:.02em}
+.p-row.tot{border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.05)}
+.p-row.tot .p-cell.vn{color:var(--dawn)}
+
+/* Scout table */
+.scout-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r)}
+.scout-t{width:100%;min-width:780px;border-collapse:collapse}
+.scout-t th{background:rgba(255,255,255,.03);font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text3);padding:10px 13px;text-align:left;
+  border-bottom:1px solid var(--border);white-space:nowrap}
+.scout-t td{padding:10px 13px;font-size:12px;color:var(--text2);border-bottom:1px solid var(--border);
+  vertical-align:top;line-height:1.55}
+.scout-t tr:last-child td{border-bottom:none}
+.scout-t tr:hover td{background:rgba(255,255,255,.02)}
+.scout-t td:first-child{color:var(--text3);font-weight:700;font-family:var(--fh)}
+.scout-t td:nth-child(2){color:var(--text);font-weight:500}
+.ok{color:#10B981;font-weight:600}
+.ask{color:var(--dawn);font-weight:600}
+.fill-in{color:var(--text3);font-style:italic}
+.scout-cost{color:#10B981;font-weight:600}
+
+/* Day schedule Gantt */
+.gantt-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px 20px;overflow-x:auto}
+.gantt-bar{position:relative;height:36px;background:rgba(255,255,255,.025);border-radius:6px;min-width:600px}
+.gantt-seg{position:absolute;top:0;height:100%;border-radius:4px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:700;font-family:var(--fh);color:rgba(255,255,255,.8);
+  transition:opacity .2s,transform .2s;overflow:hidden}
+.gantt-seg:hover{opacity:.85;transform:scaleY(1.08);z-index:5}
+.gantt-seg span{white-space:nowrap;overflow:hidden;text-overflow:clip;padding:0 3px}
+.gantt-times{display:flex;justify-content:space-between;margin-top:8px;min-width:600px}
+.gantt-times span{font-size:10px;color:var(--text3);font-family:var(--fh)}
+.gantt-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);cursor:pointer}
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 </style>
 </head>
 <body>
@@ -323,6 +379,91 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:15px
 
 <!-- Progress bar -->
 <div class="progress-bar" id="progressBar"></div>
+
+<!-- Price Research -->
+<section class="info-section">
+  <div class="sec-head"><h2>Giá tham khảo 2025–2026</h2><span class="sec-tag">Price Research</span></div>
+  <div class="sec-rule"></div>
+  <div class="price-grid">
+    <div class="p-row hd">
+      <div class="p-cell">Món / Khoản</div>
+      <div class="p-cell">Giá thực tế (VND)</div>
+      <div class="p-cell">≈ USD</div>
+      <div class="p-cell">Placeholder trong script</div>
+    </div>
+    <div class="p-row"><div class="p-cell nm">Bánh mì / xôi sáng</div><div class="p-cell vn">15.000 – 30.000đ</div><div class="p-cell us">~$0.6–1.2</div><div class="p-cell cd">[món], [X] thousand</div></div>
+    <div class="p-row"><div class="p-cell nm">Cà phê sữa đá vỉa hè</div><div class="p-cell vn">12.000 – 25.000đ</div><div class="p-cell us">~$0.5–1.0</div><div class="p-cell cd">—</div></div>
+    <div class="p-row"><div class="p-cell nm">Cơm bình dân (trưa)</div><div class="p-cell vn">30.000 – 45.000đ</div><div class="p-cell us">~$1.2–1.8</div><div class="p-cell cd">bữa trưa</div></div>
+    <div class="p-row"><div class="p-cell nm">Hủ tiếu (tối)</div><div class="p-cell vn">30.000 – 45.000đ</div><div class="p-cell us">~$1.2–1.8</div><div class="p-cell cd">[GIÁ HỦ TIẾU]</div></div>
+    <div class="p-row"><div class="p-cell nm">Trà tắc</div><div class="p-cell vn">10.000 – 18.000đ</div><div class="p-cell us">~$0.4–0.7</div><div class="p-cell cd">[GIÁ TRÀ TẮC]</div></div>
+    <div class="p-row"><div class="p-cell nm">Gửi xe máy</div><div class="p-cell vn">5.000 – 10.000đ</div><div class="p-cell us">~$0.2–0.4</div><div class="p-cell cd">[TRANSPORT_COST]</div></div>
+    <div class="p-row"><div class="p-cell nm">Xăng đi loanh quanh 1 ngày</div><div class="p-cell vn">10.000 – 20.000đ</div><div class="p-cell us">~$0.4–0.8</div><div class="p-cell cd">[TRANSPORT_COST]</div></div>
+    <div class="p-row tot"><div class="p-cell nm" style="font-weight:700;color:var(--dawn)">Tổng mục tiêu cả ngày</div><div class="p-cell vn">≤ 100.000đ</div><div class="p-cell us" style="color:var(--dawn)">~$4</div><div class="p-cell cd">[TOTAL] / [REMAINING]</div></div>
+  </div>
+</section>
+
+<!-- Location Scout -->
+<section class="info-section">
+  <div class="sec-head"><h2>Bảng Scout địa điểm</h2><span class="sec-tag">Location Research</span></div>
+  <div class="sec-rule"></div>
+  <div class="scout-wrap">
+    <table class="scout-t">
+      <thead>
+        <tr>
+          <th>#</th><th>Địa điểm</th><th>Khu gợi ý</th><th>Giờ vàng</th><th>Ánh sáng</th><th>Đông / Ồn</th><th>Xin phép?</th><th>Chi phí</th><th>Cách phòng</th><th>Backup</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Chợ sáng</td><td>Tân Định / Bà Chiểu / Hòa Hưng</td><td>6:00–7:30</td><td>nắng xiên sáng</td><td>đông, ồn vừa</td><td><span class="ask">hỏi người bán</span></td><td><span class="scout-cost">15–45k</span></td><td><span class="fill-in">__ phút</span></td><td>chợ khác / siêu thị mini</td></tr>
+        <tr><td>2</td><td>Cà phê vỉa hè</td><td>cóc gần chợ</td><td>7:00–8:30</td><td>sáng</td><td>vừa</td><td><span class="ok">không</span></td><td><span class="scout-cost">12–25k</span></td><td><span class="fill-in">__ phút</span></td><td>quán cóc khác</td></tr>
+        <tr><td>3</td><td>Cơm bình dân</td><td>hẻm gần phòng</td><td>11:00–13:00</td><td>trưa gắt → tìm bóng</td><td>đông trưa</td><td><span class="ask">hỏi nếu quay kỹ</span></td><td><span class="scout-cost">30–45k</span></td><td><span class="fill-in">__ phút</span></td><td>quán cơm khác</td></tr>
+        <tr><td>4</td><td>Hủ tiếu tối</td><td>xe / quán có bảng giá</td><td>18:00–20:00</td><td>đèn vàng</td><td>vừa</td><td><span class="ask">hỏi người bán</span></td><td><span class="scout-cost">30–45k</span></td><td><span class="fill-in">__ phút</span></td><td>xe hủ tiếu khác</td></tr>
+        <tr><td>5</td><td>Trà tắc / CVS</td><td>xe lề đường / Circle K</td><td>tối</td><td>đèn</td><td>vắng–vừa</td><td><span class="ok">không</span></td><td><span class="scout-cost">10–18k</span></td><td><span class="fill-in">__ phút</span></td><td>CVS khác</td></tr>
+        <tr><td>6</td><td>Cầu Ba Son + Bến Bạch Đằng</td><td>Q1 bờ sông</td><td>17:30–19:00</td><td>hoàng hôn + đèn</td><td>đông cuối tuần</td><td><span class="ok">nơi công cộng</span></td><td><span class="scout-cost">gửi xe 5–10k</span></td><td><span class="fill-in">__ phút</span></td><td>view Landmark 81 / bến khác</td></tr>
+        <tr><td>7</td><td>Đường về</td><td>hẻm / đường quen</td><td>tối</td><td>đèn vàng</td><td>vắng</td><td><span class="ok">không</span></td><td><span class="scout-cost">0</span></td><td>0 phút</td><td>đoạn đường khác</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Day Schedule -->
+<section class="info-section" style="padding-bottom:48px">
+  <div class="sec-head"><h2>Lịch trình ngày</h2><span class="sec-tag">Day Schedule</span></div>
+  <div class="sec-rule"></div>
+  <div class="gantt-wrap">
+    <div class="gantt-bar">
+      <!-- 930 min total: 05:45→21:15. left=(start-345)/930*100, width=dur/930*100 -->
+      <div class="gantt-seg" style="left:0%;width:3.23%;background:var(--dawn)" onclick="document.getElementById('step1').scrollIntoView({behavior:'smooth'})" title="05:45–06:15 Room Setup"><span>1</span></div>
+      <div class="gantt-seg" style="left:3.23%;width:4.84%;background:var(--morning)" onclick="document.getElementById('step2').scrollIntoView({behavior:'smooth'})" title="06:15–07:00 Market+Breakfast"><span>2</span></div>
+      <div class="gantt-seg" style="left:8.06%;width:3.23%;background:var(--morning)" onclick="document.getElementById('step3').scrollIntoView({behavior:'smooth'})" title="07:00–07:30 Sidewalk Coffee"><span>3</span></div>
+      <div class="gantt-seg" style="left:37.10%;width:6.45%;background:var(--noon)" onclick="document.getElementById('step4').scrollIntoView({behavior:'smooth'})" title="11:30–12:30 Lunch"><span>4</span></div>
+      <div class="gantt-seg" style="left:43.55%;width:33.87%;background:var(--afternoon);opacity:.7" onclick="document.getElementById('step5').scrollIntoView({behavior:'smooth'})" title="12:30–17:45 Reset+Scout"><span>5 Reset</span></div>
+      <div class="gantt-seg" style="left:79.03%;width:6.45%;background:var(--evening)" onclick="document.getElementById('step6').scrollIntoView({behavior:'smooth'})" title="18:00–19:00 Hủ Tiếu"><span>6</span></div>
+      <div class="gantt-seg" style="left:85.48%;width:2.15%;background:var(--evening)" onclick="document.getElementById('step7').scrollIntoView({behavior:'smooth'})" title="19:00–19:20 Contrast"><span>7</span></div>
+      <div class="gantt-seg" style="left:87.63%;width:1.61%;background:var(--evening)" onclick="document.getElementById('step8').scrollIntoView({behavior:'smooth'})" title="19:20–19:35 Trà tắc"><span>8</span></div>
+      <div class="gantt-seg" style="left:90.32%;width:4.84%;background:var(--night)" onclick="document.getElementById('step9').scrollIntoView({behavior:'smooth'})" title="19:45–20:30 Ba Son"><span>9</span></div>
+      <div class="gantt-seg" style="left:95.16%;width:1.61%;background:var(--night)" onclick="document.getElementById('step10').scrollIntoView({behavior:'smooth'})" title="20:30–20:45 Breakdown"><span>10</span></div>
+      <div class="gantt-seg" style="left:96.77%;width:3.23%;background:var(--night)" onclick="document.getElementById('step11').scrollIntoView({behavior:'smooth'})" title="20:45–21:15 Return"><span>11</span></div>
+    </div>
+    <div class="gantt-times">
+      <span>05:45</span><span>08:00</span><span>10:00</span><span>12:00</span><span>14:00</span><span>16:00</span><span>18:00</span><span>20:00</span><span>21:15</span>
+    </div>
+    <div class="gantt-legend">
+      <div class="leg-item"><div class="leg-dot" style="background:var(--dawn)"></div>Bình minh</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--morning)"></div>Sáng</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--noon)"></div>Trưa</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--afternoon)"></div>Chiều (reset)</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--evening)"></div>Tối sớm</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--night)"></div>Đêm</div>
+    </div>
+  </div>
+</section>
+
+<!-- Part 2 label -->
+<div style="max-width:860px;margin:0 auto;padding:48px 24px 0">
+  <div class="sec-head"><h2>Part 2 — Shooting Route &amp; Scene Flow</h2><span class="sec-tag">11 Steps</span></div>
+  <div class="sec-rule"></div>
+</div>
 
 <!-- Timeline -->
 <main class="timeline" id="timeline"></main>
