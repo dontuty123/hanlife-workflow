@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EP01 — Shoot Flow | A Real Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#06060c;
+  --bg2:#0f0f1a;
+  --surface:rgba(255,255,255,.04);
+  --surface2:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.08);
+  --border2:rgba(255,255,255,.16);
+  --text:#e8e8f2;
+  --text2:#9090b0;
+  --text3:#50506a;
+  --dawn:#F59E0B;
+  --morning:#10B981;
+  --noon:#EF4444;
+  --afternoon:#F97316;
+  --evening:#A78BFA;
+  --night:#38BDF8;
+  --r:14px;
+  --rs:8px;
+  --fh:'Space Grotesk',sans-serif;
+  --fb:'Inter',sans-serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── HERO ── */
+.hero{
+  position:relative;min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:40px 24px;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 20%,rgba(139,92,246,.18) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 15% 80%,rgba(56,189,248,.12) 0%,transparent 50%),
+    radial-gradient(ellipse 50% 40% at 85% 70%,rgba(245,158,11,.09) 0%,transparent 50%);
+  animation:pulse 10s ease-in-out infinite alternate;
+}
+@keyframes pulse{0%{opacity:.7;transform:scale(1)}100%{opacity:1;transform:scale(1.06)}}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:52px 52px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 70%);
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 70%);
+}
+.hero-orbs{position:absolute;inset:0;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.25;animation:orb 12s ease-in-out infinite alternate}
+.orb1{width:400px;height:400px;background:var(--evening);top:-100px;left:-100px;animation-delay:0s}
+.orb2{width:300px;height:300px;background:var(--night);bottom:-80px;right:-60px;animation-delay:3s}
+.orb3{width:250px;height:250px;background:var(--dawn);top:40%;left:60%;animation-delay:6s}
+@keyframes orb{0%{transform:translate(0,0) scale(1)}100%{transform:translate(30px,20px) scale(1.15)}}
+.hero-content{position:relative;z-index:1}
+.ep-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--evening);background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.25);
+  border-radius:100px;padding:6px 18px;margin-bottom:28px;
+}
+.ep-dot{width:6px;height:6px;border-radius:50%;background:var(--evening);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:.4}50%{opacity:1}}
+.hero h1{
+  font-family:var(--fh);font-size:clamp(52px,9vw,108px);font-weight:800;line-height:.92;
+  letter-spacing:-.04em;margin-bottom:16px;
+  background:linear-gradient(160deg,#fff 30%,rgba(255,255,255,.4));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{font-size:17px;color:var(--text2);margin-bottom:48px;font-weight:400;letter-spacing:.01em}
+.hero-stats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
+.stat-pill{
+  display:flex;align-items:center;gap:8px;
+  background:var(--surface);border:1px solid var(--border);border-radius:100px;
+  padding:8px 18px;font-size:13px;font-weight:500;color:var(--text2);
+  transition:border-color .2s,color .2s;
+}
+.stat-pill:hover{border-color:var(--border2);color:var(--text)}
+.stat-icon{font-size:15px}
+.scroll-cue{
+  position:absolute;bottom:36px;display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:var(--text3);font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  animation:scrollCue 2.5s ease-in-out infinite;
+}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--text3),transparent)}
+@keyframes scrollCue{0%,100%{opacity:.35;transform:translateY(0)}50%{opacity:1;transform:translateY(10px)}}
+
+/* ── QUICK NAV ── */
+.quick-nav{
+  position:sticky;top:0;z-index:50;display:flex;justify-content:center;
+  padding:12px 16px;background:rgba(6,6,12,.85);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.quick-nav-inner{display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none}
+.quick-nav-inner::-webkit-scrollbar{display:none}
+.nav-dot{
+  width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;font-family:var(--fh);color:var(--text3);
+  border:1px solid var(--border);background:transparent;cursor:pointer;
+  transition:all .2s;flex-shrink:0;
+}
+.nav-dot:hover{border-color:var(--border2);color:var(--text)}
+.nav-dot.active{color:#fff;border-color:transparent}
+[data-period="dawn"] .nav-dot.active,.nav-dot[data-nav-period="dawn"].active{background:var(--dawn)}
+[data-period="morning"] .nav-dot.active,.nav-dot[data-nav-period="morning"].active{background:var(--morning)}
+[data-period="noon"] .nav-dot.active,.nav-dot[data-nav-period="noon"].active{background:var(--noon)}
+[data-period="afternoon"] .nav-dot.active,.nav-dot[data-nav-period="afternoon"].active{background:var(--afternoon)}
+[data-period="evening"] .nav-dot.active,.nav-dot[data-nav-period="evening"].active{background:var(--evening)}
+[data-period="night"] .nav-dot.active,.nav-dot[data-nav-period="night"].active{background:var(--night)}
+
+/* ── PROGRESS BAR ── */
+.progress-bar{
+  position:fixed;top:0;left:0;height:2px;width:0%;z-index:100;
+  background:linear-gradient(90deg,var(--evening),var(--night));
+  transition:width .08s linear;
+}
+
+/* ── TIMELINE ── */
+.timeline{
+  position:relative;max-width:760px;margin:0 auto;padding:80px 24px 160px;
+}
+.timeline::before{
+  content:'';position:absolute;left:50%;top:80px;bottom:160px;
+  width:1px;background:linear-gradient(to bottom,transparent,var(--border) 8%,var(--border) 92%,transparent);
+  transform:translateX(-50%);
+}
+
+/* ── STEP CARD ── */
+.step-card{
+  position:relative;margin-bottom:28px;
+  opacity:0;transform:translateY(48px) scale(.96);
+  transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1);
+}
+.step-card.visible{opacity:1;transform:translateY(0) scale(1)}
+
+/* Timeline dot */
+.step-dot{
+  position:absolute;left:50%;top:30px;
+  width:10px;height:10px;border-radius:50%;transform:translateX(-50%);z-index:2;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;
+}
+.step-card:hover .step-dot,.step-card.open .step-dot{transform:translateX(-50%) scale(1.8)}
+
+[data-period="dawn"] .step-dot{background:var(--dawn);box-shadow:0 0 0 3px rgba(245,158,11,.2)}
+[data-period="morning"] .step-dot{background:var(--morning);box-shadow:0 0 0 3px rgba(16,185,129,.2)}
+[data-period="noon"] .step-dot{background:var(--noon);box-shadow:0 0 0 3px rgba(239,68,68,.2)}
+[data-period="afternoon"] .step-dot{background:var(--afternoon);box-shadow:0 0 0 3px rgba(249,115,22,.2)}
+[data-period="evening"] .step-dot{background:var(--evening);box-shadow:0 0 0 3px rgba(167,139,250,.2)}
+[data-period="night"] .step-dot{background:var(--night);box-shadow:0 0 0 3px rgba(56,189,248,.2)}
+
+.card-inner{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;transition:border-color .3s,box-shadow .3s;
+  transform-style:preserve-3d;will-change:transform;
+  transition:border-color .3s,box-shadow .3s,transform .15s cubic-bezier(.25,.46,.45,.94);
+}
+.step-card:hover .card-inner{border-color:var(--border2);box-shadow:0 8px 40px rgba(0,0,0,.45)}
+
+[data-period="dawn"] .card-inner{border-left:2px solid var(--dawn)}
+[data-period="morning"] .card-inner{border-left:2px solid var(--morning)}
+[data-period="noon"] .card-inner{border-left:2px solid var(--noon)}
+[data-period="afternoon"] .card-inner{border-left:2px solid var(--afternoon)}
+[data-period="evening"] .card-inner{border-left:2px solid var(--evening)}
+[data-period="night"] .card-inner{border-left:2px solid var(--night)}
+
+.step-card.open .card-inner{border-color:var(--border2);box-shadow:0 12px 60px rgba(0,0,0,.55)}
+
+/* ── CARD HEADER ── */
+.card-header{
+  display:flex;align-items:center;gap:14px;padding:18px 22px;
+  cursor:pointer;user-select:none;transition:background .2s;
+}
+.card-header:hover{background:rgba(255,255,255,.02)}
+.step-num{
+  font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.08em;
+  color:var(--text3);min-width:20px;
+}
+.step-icon{
+  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  font-size:20px;border-radius:12px;flex-shrink:0;
+}
+[data-period="dawn"] .step-icon{background:rgba(245,158,11,.1)}
+[data-period="morning"] .step-icon{background:rgba(16,185,129,.1)}
+[data-period="noon"] .step-icon{background:rgba(239,68,68,.1)}
+[data-period="afternoon"] .step-icon{background:rgba(249,115,22,.1)}
+[data-period="evening"] .step-icon{background:rgba(167,139,250,.1)}
+[data-period="night"] .step-icon{background:rgba(56,189,248,.1)}
+
+.step-text{flex:1;min-width:0}
+.step-text h3{font-family:var(--fh);font-size:15px;font-weight:600;color:var(--text);margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step-text p{font-size:12px;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.header-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.time-badge{
+  font-size:11px;font-weight:600;font-family:var(--fh);padding:4px 12px;border-radius:100px;white-space:nowrap;
+}
+[data-period="dawn"] .time-badge{color:var(--dawn);background:rgba(245,158,11,.1)}
+[data-period="morning"] .time-badge{color:var(--morning);background:rgba(16,185,129,.1)}
+[data-period="noon"] .time-badge{color:var(--noon);background:rgba(239,68,68,.1)}
+[data-period="afternoon"] .time-badge{color:var(--afternoon);background:rgba(249,115,22,.1)}
+[data-period="evening"] .time-badge{color:var(--evening);background:rgba(167,139,250,.1)}
+[data-period="night"] .time-badge{color:var(--night);background:rgba(56,189,248,.1)}
+
+.expand-btn{
+  width:26px;height:26px;display:flex;align-items:center;justify-content:center;
+  border-radius:8px;background:var(--surface);border:1px solid var(--border);
+  color:var(--text3);font-size:18px;line-height:1;transition:all .35s cubic-bezier(.34,1.56,.64,1);flex-shrink:0;
+}
+.step-card.open .expand-btn{transform:rotate(45deg);background:var(--surface2);color:var(--text)}
+
+/* ── CARD DETAIL (grid expand trick) ── */
+.card-detail{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.4,0,.2,1)}
+.step-card.open .card-detail{grid-template-rows:1fr}
+.card-detail-inner{overflow:hidden}
+
+.detail-body{padding:0 22px 22px;display:flex;flex-direction:column;gap:18px}
+.detail-hr{height:1px;background:var(--border)}
+
+/* ── DETAIL SECTIONS ── */
+.section-label{
+  display:flex;align-items:center;gap:7px;
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:8px;
+}
+.section-label .ico{font-size:13px}
+.section-text{font-size:13px;color:var(--text2);line-height:1.75}
+
+/* Route pill */
+.route-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;color:var(--text2);background:var(--surface2);
+  border:1px solid var(--border);border-radius:100px;padding:5px 14px;
+}
+.route-pill .arrow{color:var(--text3);font-size:10px}
+
+/* Shot pills */
+.shots-wrap{display:flex;flex-wrap:wrap;gap:6px}
+.shot-pill{
+  font-size:12px;font-weight:500;padding:4px 12px;border-radius:100px;
+  border:1px solid var(--border);color:var(--text2);background:var(--surface);
+  transition:all .2s;cursor:default;
+}
+.shot-pill:hover{border-color:var(--border2);color:var(--text)}
+
+/* VO block */
+.vo-block{
+  background:rgba(167,139,250,.05);border:1px solid rgba(167,139,250,.15);
+  border-radius:var(--rs);padding:14px 16px;
+  font-size:13px;color:rgba(167,139,250,.85);font-style:italic;line-height:1.75;
+}
+
+/* Bottom grid */
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dcell{
+  background:rgba(255,255,255,.025);border:1px solid var(--border);
+  border-radius:var(--rs);padding:12px 14px;
+}
+.dcell-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
+.dcell-val{font-size:12px;color:var(--text2);line-height:1.65}
+.done-val{color:#10B981;font-size:12px;line-height:1.65}
+
+/* ── RESPONSIVE ── */
+@media(max-width:620px){
+  .timeline::before{left:20px}
+  .step-dot{left:20px}
+  .card-header{padding:14px 14px;gap:10px}
+  .time-badge{display:none}
+  .detail-grid{grid-template-columns:1fr}
+  .hero h1{letter-spacing:-.03em}
+  .step-num{display:none}
+}
+
+/* ── FOOTER ── */
+.footer{
+  text-align:center;padding:40px 24px 64px;
+  color:var(--text3);font-size:12px;letter-spacing:.05em;
+  border-top:1px solid var(--border);
+}
+
+/* ── SCROLL SNAP FOR OPENED CARD ── */
+.step-card.open{scroll-margin-top:64px}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="ep-badge"><div class="ep-dot"></div>EP 01 &mdash; HAN LIFE</div>
+    <h1>A Real Day</h1>
+    <p class="hero-sub">Shooting Route &amp; Scene Flow — 11 cảnh &bull; HCMC</p>
+    <div class="hero-stats">
+      <div class="stat-pill"><span class="stat-icon">📍</span>HCMC &ndash; Q1 / Bình Thạnh</div>
+      <div class="stat-pill"><span class="stat-icon">⏱</span>05:45 → 21:15</div>
+      <div class="stat-pill"><span class="stat-icon">💰</span>100,000đ / ~$4</div>
+      <div class="stat-pill"><span class="stat-icon">🎬</span>11 scenes</div>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="scroll-line"></div>scroll</div>
+</section>
+
+<!-- Quick Nav -->
+<nav class="quick-nav">
+  <div class="quick-nav-inner" id="quickNav"></div>
+</nav>
+
+<!-- Progress bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Timeline -->
+<main class="timeline" id="timeline"></main>
+
+<footer class="footer">EP01 Shoot Flow &bull; Han Life Method &bull; HCMC 2025–2026</footer>
+
+<script>
+const STEPS = [
+  {
+    id:1,time:"05:45 – 06:15",period:"dawn",icon:"🏠",
+    name:"Room Setup",sub:"Chuẩn bị & xuất phát",
+    route:"Phòng → cầu thang → đường trước nhà",
+    action:"Làm giường, đếm 100k, bỏ ví, khóa cửa và bước ra ngoài. Đây là cảnh mở — cần ít nhất 3 take sạch.",
+    shots:["Wide cửa sổ (ánh sáng vào phòng)","Face close-up nhìn camera","Top-down 90° tiền 100k","Bỏ tiền vào ví","Khóa cửa — POV ra ngoài","Bước chân xuống cầu thang"],
+    vo:"Hook + rule ngày: sống một mình, 100k, một ngày thật. Kết bằng: “Come with me.”",
+    budget:"Tracker bắt đầu: 100,000đ (~$4) — quay rõ tiền thật, lẻ 10k/20k/50k",
+    safety:"Không quay số phòng hay địa chỉ. Kiểm tra pin đầy + thẻ nhớ ≥ 20GB trước khi ra.",
+    done:"3 take hook sạch • 30s room tone • đủ cảnh rời phòng",
+    backup:"Hành lang / cầu thang khác trong cùng tòa"
+  },
+  {
+    id:2,time:"06:15 – 07:00",period:"morning",icon:"🛒",
+    name:"Market + Breakfast",sub:"Chợ sáng & bữa ăn đầu tiên",
+    route:"Tới chợ gần phòng nhất (Tân Định / Bà Chiểu / Hòa Hưng)",
+    action:"Đi một vòng chợ, chọn và mua món sáng thật. Hỏi người bán trước khi quay close-up.",
+    shots:["Wide chợ (đông + ánh sáng sáng sớm)","Activity người bán: xắt / gói / bày","Bảng giá cận cảnh","Tay trả tiền + nhận tiền thối","Reaction ngồi ăn — đừng diễn"],
+    vo:"Đời sống buổi sáng + giá thật. Giới thiệu nhịp thành phố. Câu ngắn, có pause.",
+    budget:"Bữa sáng 15–30k — quay bảng giá + tiền trao tay để tạo trust",
+    safety:"Hỏi người bán trước khi quay close-up. Giữ máy gọn ở nơi đông người.",
+    done:"Wide + activity + detail + reaction • 30–60s ambient chợ • giá thật đã quay",
+    backup:"Chợ khác gần phòng hoặc siêu thị mini mở sớm"
+  },
+  {
+    id:3,time:"07:00 – 07:30",period:"morning",icon:"☕",
+    name:"Sidewalk Coffee",sub:"Cà phê vỉa hè — best part of the day",
+    route:"Quán cóc / ghế nhựa gần chợ — cà phê sữa đá",
+    action:"Gọi cà phê, ngồi uống thật, quan sát phố đang thức dậy. Đừng vội rời.",
+    shots:["Wide quán cóc từ ngoài vào","Pha / rót / thả đá (activity)","Ghế nhựa + tay cầm ly","Thanh toán — tiền trao tay","Ngụm đầu + reaction thật"],
+    vo:'"This is the best part of my day. And it costs almost nothing. Cheap. Strong. Honest."',
+    budget:"Cà phê 12–25k — cập nhật tracker ngay sau thanh toán",
+    safety:"Xin phép nếu quay sát người pha. Tránh chắn lối đi của khách.",
+    done:"Câu mở scene + câu đóng scene • 30s tiếng quán & xe cộ ngoài",
+    backup:"Quán cóc khác trên cùng tuyến đường"
+  },
+  {
+    id:4,time:"11:30 – 12:30",period:"noon",icon:"🍚",
+    name:"Lunch",sub:"Cơm bình dân giữa nắng trưa",
+    route:"Cơm bình dân trong hẻm gần phòng — có biển giá rõ",
+    action:"Quay nắng trưa trên đường, vào quán xem menu, gọi cơm và ăn thật. Cảm giác nóng là chất liệu.",
+    shots:["Establishing: nắng trưa + traffic","Biển giá / menu trước khi gọi","Dĩa cơm vừa ra bàn (45°)","Tay trả tiền — nhận thối","Reaction ăn — nóng, không diễn"],
+    vo:"Tiền ít tạo quyết định: đi xe hay đi bộ? “When you cannot buy much, you stop wanting much.”",
+    budget:"Cơm 30–45k — giá thật quyết định budget chiều còn lại",
+    safety:"Hỏi nếu quay kỹ trong quán. Tìm chỗ bóng, tránh nắng gắt trực tiếp vào lens.",
+    done:"Establishing trưa + food detail + payment + ambient 30s trong quán",
+    backup:"Quán cơm khác đã scout hoặc bún/phở rẻ hơn trong cùng hẻm"
+  },
+  {
+    id:5,time:"12:30 – 17:45",period:"afternoon",icon:"🔋",
+    name:"Reset + Scout",sub:"Nghỉ trưa — backup footage — scout tuyến tối",
+    route:"Về phòng nghỉ → chiều tối ra đường xem 2–3 quán hủ tiếu",
+    action:"Sạc pin, backup footage ra ổ cứng. Chiều tối ra đường, xem menu hủ tiếu, xác nhận giá trước khi chọn.",
+    shots:["B-roll: đường phố khi trời tối dần","Biển hiệu quán hủ tiếu (2–3 lựa)","Menu / bảng giá cận cảnh","POV tìm quán — chỉ khi dừng xe"],
+    vo:"Chuyển từ nhịp ban ngày sang tension bữa tối. Chưa chi tiêu — chỉ scout.",
+    budget:"Chưa mua gì — kiểm tra Remaining trước khi chọn quán tối",
+    safety:"TUYỆT ĐỐI không quay khi tự lái. Chỉ quay khi dừng hẳn hoặc có mount an toàn.",
+    done:"Footage đã backup • pin > 80% • xác nhận giá ≥ 2 quán hủ tiếu",
+    backup:"Tuyến tối dự phòng đã scout từ trước (quán cụ thể, đã biết giá)"
+  },
+  {
+    id:6,time:"18:00 – 19:00",period:"evening",icon:"🍜",
+    name:"Hủ Tiếu + Alone",sub:"Ăn tối một mình — emotional core",
+    route:"Quán / xe hủ tiếu có bảng giá rõ, ghế nhựa, đông vừa",
+    action:"Chọn quán từ lúc scout, gọi món, quay người bán nấu, rồi ngồi ăn thật. Đừng diễn buồn.",
+    shots:["Biển giá rõ trước khi ngồi (BẮT BUỘC)","Người bán trụng/múc hủ tiếu","Tô đặt xuống — góc 45°, steam rõ","Wide: bạn ăn một mình, bg đông","Tay trả tiền + nhận thối"],
+    vo:'"This bowl costs [X] thousand dong. It is close, warm, and enough. Some nights, enough is already very good."',
+    budget:"Hủ tiếu 30–45k — on-screen: Dinner: xx,xxxđ / Remaining: xx,xxxđ",
+    safety:"Xin phép người bán trước. Không quay rõ mặt khách khác ở bàn bên.",
+    done:"Chọn→nấu→ăn→trả tiền đầy đủ • 60s ambient quán",
+    backup:"Xe hủ tiếu khác có bảng giá rõ trong tuyến đã scout"
+  },
+  {
+    id:7,time:"19:00 – 19:20",period:"evening",icon:"👥",
+    name:"Contrast Moment",sub:"Nhóm bạn — cặp đôi — và một mình",
+    route:"Đi bộ qua khu đông gần quán hủ tiếu",
+    action:"Quan sát nhóm bạn / cặp đôi từ xa. Bạn tiếp tục đi một mình. Đoạn này KHÔNG cần nhiều thoại.",
+    shots:["Wide: nhóm bạn cụng ly — từ XA, không rõ mặt","Cặp đôi — silhouette từ sau lưng","Reflection: bạn trong kính cửa hàng","Long take 8–20s: bạn nhỏ trong khung lớn","Bóng trên mặt đường"],
+    vo:'"Being alone is not always painful. Sometimes it is just more visible when everyone else is sitting across from someone."',
+    budget:"Không chi tiêu — tắt tracker, để hình và silence dẫn cảm xúc",
+    safety:"Chỉ wide / silhouette — KHÔNG lộ mặt, trẻ em, thông tin nhận diện người lạ.",
+    done:"2 wide sạch + 1 reflection rõ + 1 long take không rung",
+    backup:"Đường đông khác / bóng / nền bokeh thay nhóm người"
+  },
+  {
+    id:8,time:"19:20 – 19:35",period:"evening",icon:"🧋",
+    name:"Small Treat",sub:"Trà tắc — emotional release nhẹ",
+    route:"Xe trà tắc lề đường (Circle K / GS25 là backup)",
+    action:"Mua một ly nếu budget còn đủ. Nếu không — việc bỏ cảnh này cũng là story beat thật.",
+    shots:["Bảng giá / menu trên xe","Tay pha: tắc + đá + ly nhựa","Thanh toán — tiền trao tay","Cắm ống hút — cận cảnh","Ngụm đầu + reaction nhẹ"],
+    vo:'"My doctor would probably prefer water. My mood disagreed. Not expensive. Just unnecessary enough to feel human."',
+    budget:"Trà tắc 10–18k — nếu vượt budget, không mua là story beat trung thực hơn",
+    safety:"Hỏi nếu quay sát quầy. Không đứng chắn khách xếp hàng.",
+    done:"Price proof + transaction + first sip + 30s ambient đường/xe",
+    backup:"Circle K / GS25 — hoặc bỏ cảnh này nếu budget thực sự không đủ"
+  },
+  {
+    id:9,time:"19:45 – 20:30",period:"night",icon:"🌉",
+    name:"Ba Son Walk",sub:"Visual payoff — thành phố từ bờ sông",
+    route:"Trà tắc → Cầu Ba Son + Bến Bạch Đằng, Q1",
+    action:"Gửi xe, đi bộ 10–15 phút trong công viên dưới chân cầu, cầm trà tắc nhìn skyline và sông. Không vội. Để cảnh thở.",
+    shots:["Wide Cầu Ba Son / skyline","POV đi bộ — gimbal / 2 tay","River detail: ánh đèn phản chiếu","Cặp đôi / người đi bộ — silhouette từ XA","Bạn cầm trà tắc — long take 10–15s","Bóng trên mặt đường / ánh đèn"],
+    vo:'"The city does not know my name. Tonight, somehow, that feels like a kind of peace."',
+    budget:"Gửi xe 5–10k — cộng vào transport TRƯỚC khi làm breakdown",
+    safety:"Tuyến sáng, đông vừa. Giữ máy gọn, không dùng tripod cao ở mép sông/đường.",
+    done:"3 wide sạch + POV + reflection + 60s gió/xe/bước chân ambient",
+    backup:"Bến Bạch Đằng / view Landmark 81 / điểm bờ sông khác Q1"
+  },
+  {
+    id:10,time:"20:30 – 20:45",period:"night",icon:"📒",
+    name:"Budget Breakdown",sub:"Viết tổng kết — các con số quyết định ngày",
+    route:"Chỗ ngồi sáng gần Ba Son hoặc về phòng quay",
+    action:"Viết từng khoản ra giấy, đếm tiền còn lại, quay top-down rõ nét. Viết tay nhìn authentic hơn text digital.",
+    shots:["Notebook top-down 90° — tay viết từng khoản","Tick từng dòng: sáng/trưa/hủ tiếu/trà tắc/gửi xe","Tiền còn lại đặt cạnh notebook","Tracker on-screen: TOTAL + REMAINING"],
+    vo:'"So tonight I spent [TOTAL]. I have [REMAINING] left. These numbers are small. But they decided the night."',
+    budget:"Điền TOTAL, REMAINING, [GIÁ HỦ TIẾU], [GIÁ TRÀ TẮC], [TRANSPORT] bằng số THẬT",
+    safety:"Ngồi nơi sáng, an toàn. Che thông tin cá nhân nếu điện thoại xuất hiện trong frame.",
+    done:"Phép tính khớp 100k + một take viết tay đọc được",
+    backup:"Về phòng quay breakdown trên bàn nếu ngoài trời quá tối / ồn"
+  },
+  {
+    id:11,time:"20:45 – 21:15",period:"night",icon:"🚪",
+    name:"Return + Outro",sub:"Về phòng — câu hỏi cuối cho người xem",
+    route:"Ba Son → đường quen → phòng",
+    action:"Về phòng theo đường quen, mở cửa, bật đèn, đặt ví và tiền lên bàn. Nói một câu thật thà với camera.",
+    shots:["Đường về — đèn vàng, quen thuộc","Mở cửa phòng + bật đèn","Đặt ví / tiền còn lại lên bàn","Room wide — không thay đổi, người thì khác","Face ngang mắt — nhìn thẳng camera, máy tĩnh"],
+    vo:'"When I get back, the room feels less heavy. Some nights do not fix anything. They just make tomorrow feel a little easier."',
+    budget:"Tracker final xuất hiện 2–3s rồi fade out",
+    safety:"Đường về quen, có đèn. Không quay địa chỉ / số phòng. Máy tĩnh cho outro.",
+    done:"Room tone sạch + 2 take outro + câu hỏi giữ màn hình 4–5s",
+    backup:"Outro cạnh cửa sổ / ban công nếu góc phòng không đẹp"
+  }
+];
+
+const PERIOD_COL={dawn:'#F59E0B',morning:'#10B981',noon:'#EF4444',afternoon:'#F97316',evening:'#A78BFA',night:'#38BDF8'};
+
+/* ── RENDER ── */
+function render(){
+  const tl=document.getElementById('timeline');
+  const qn=document.getElementById('quickNav');
+
+  tl.innerHTML=STEPS.map(s=>`
+<article class="step-card" data-period="${s.period}" data-id="${s.id}" id="step${s.id}">
+  <div class="step-dot"></div>
+  <div class="card-inner">
+    <div class="card-header" onclick="toggle(${s.id})">
+      <span class="step-num">${String(s.id).padStart(2,'0')}</span>
+      <div class="step-icon">${s.icon}</div>
+      <div class="step-text"><h3>${s.name}</h3><p>${s.sub}</p></div>
+      <div class="header-right">
+        <span class="time-badge">${s.time}</span>
+        <div class="expand-btn">+</div>
+      </div>
+    </div>
+    <div class="card-detail">
+      <div class="card-detail-inner">
+        <div class="detail-body">
+          <div class="detail-hr"></div>
+          <div>
+            <div class="section-label"><span class="ico">📍</span> Route</div>
+            <div class="route-pill">${s.route.split('→').map((p,i,a)=>i<a.length-1?p.trim()+'<span class="arrow"> → </span>':p.trim()).join('')}</div>
+          </div>
+          <div>
+            <div class="section-label"><span class="ico">🎯</span> Bạn làm gì</div>
+            <div class="section-text">${s.action}</div>
+          </div>
+          <div>
+            <div class="section-label"><span class="ico">🎬</span> Phải quay đủ</div>
+            <div class="shots-wrap">${s.shots.map(sh=>`<span class="shot-pill">${sh}</span>`).join('')}</div>
+          </div>
+          <div>
+            <div class="section-label"><span class="ico">🎙</span> VO / Nội dung</div>
+            <div class="vo-block">${s.vo}</div>
+          </div>
+          <div class="detail-grid">
+            <div class="dcell"><div class="dcell-label">💰 Budget / Proof</div><div class="dcell-val">${s.budget}</div></div>
+            <div class="dcell"><div class="dcell-label">⚠️ Xin phép & An toàn</div><div class="dcell-val">${s.safety}</div></div>
+            <div class="dcell"><div class="dcell-label">✅ Done khi…</div><div class="done-val">${s.done}</div></div>
+            <div class="dcell"><div class="dcell-label">🔄 Backup</div><div class="dcell-val">${s.backup}</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>`).join('');
+
+  qn.innerHTML=STEPS.map(s=>`
+<button class="nav-dot" data-nav-period="${s.period}" data-nav-id="${s.id}" title="Step ${s.id}: ${s.name}" onclick="jumpTo(${s.id})">${s.id}</button>`).join('');
+
+  initObserver();
+  init3D();
+}
+
+/* ── TOGGLE ── */
+function toggle(id){
+  const card=document.querySelector(`[data-id="${id}"]`);
+  const was=card.classList.contains('open');
+  document.querySelectorAll('.step-card.open').forEach(c=>c.classList.remove('open'));
+  if(!was){
+    card.classList.add('open');
+    setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}),60);
+  }
+  updateNav();
+}
+
+function jumpTo(id){
+  document.getElementById('step'+id).scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ── NAV ACTIVE STATE ── */
+function updateNav(){
+  const open=document.querySelector('.step-card.open');
+  document.querySelectorAll('.nav-dot').forEach(d=>{
+    d.classList.toggle('active',open&&+d.dataset.navId===+open.dataset.id);
+  });
+}
+
+/* ── INTERSECTION OBSERVER ── */
+function initObserver(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+    });
+  },{threshold:.05,rootMargin:'0px'});
+  document.querySelectorAll('.step-card').forEach(c=>obs.observe(c));
+  // Fallback: stagger-reveal all cards that haven't appeared after 1s
+  setTimeout(()=>{
+    document.querySelectorAll('.step-card:not(.visible)').forEach((c,i)=>{
+      setTimeout(()=>c.classList.add('visible'), i*80);
+    });
+  }, 900);
+
+  // Nav active on scroll
+  const navObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id=e.target.dataset.id;
+        document.querySelectorAll('.nav-dot').forEach(d=>{
+          const match=+d.dataset.navId===+id;
+          if(match)d.classList.add('active');
+          else if(!document.querySelector('.step-card.open'))d.classList.remove('active');
+        });
+      }
+    });
+  },{threshold:.5});
+  document.querySelectorAll('.step-card').forEach(c=>navObs.observe(c));
+}
+
+/* ── 3D TILT ── */
+function init3D(){
+  document.querySelectorAll('.card-inner').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      if(card.closest('.step-card').classList.contains('open'))return;
+      const r=card.getBoundingClientRect();
+      const x=e.clientX-r.left,y=e.clientY-r.top;
+      const cx=r.width/2,cy=r.height/2;
+      const rx=((y-cy)/cy)*5,ry=((cx-x)/cx)*5;
+      card.style.transform=`perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(10px)`;
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.style.transform='perspective(700px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+    });
+  });
+}
+
+/* ── PROGRESS BAR ── */
+window.addEventListener('scroll',()=>{
+  const bar=document.getElementById('progressBar');
+  const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+  bar.style.width=pct+'%';
+},{ passive:true });
+
+render();
+</script>
+</body>
+</html>
