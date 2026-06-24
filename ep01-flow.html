@@ -290,6 +290,59 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:15px
 /* ── SCROLL SNAP FOR OPENED CARD ── */
 .step-card.open{scroll-margin-top:64px}
 
+/* ── EDIT SYSTEM ── */
+.edit-btn{
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  border-radius:8px;background:transparent;border:1px solid var(--border);
+  color:var(--text3);font-size:13px;cursor:pointer;transition:all .2s;flex-shrink:0;
+  line-height:1;
+}
+.edit-btn:hover{border-color:var(--border2);color:var(--text);background:var(--surface2)}
+.step-card.editing .edit-btn{background:rgba(16,185,129,.15);border-color:rgba(16,185,129,.4);color:#10B981}
+.edit-hint{
+  font-size:10px;color:rgba(167,139,250,.6);font-family:var(--fh);letter-spacing:.06em;
+  display:none;padding:2px 0;
+}
+.step-card.editing .edit-hint{display:block}
+.reset-link{
+  font-size:10px;color:var(--text3);cursor:pointer;margin-left:auto;
+  text-decoration:underline;text-underline-offset:2px;display:none;
+}
+.step-card.editing .reset-link{display:inline}
+
+/* Editable text fields */
+[contenteditable][data-sid]{outline:none;border-radius:5px;transition:background .15s,box-shadow .15s}
+[contenteditable][data-sid]:focus{
+  background:rgba(255,255,255,.04);
+  box-shadow:0 0 0 1px rgba(167,139,250,.35);
+  padding:2px 5px;
+}
+.step-card:not(.editing) [contenteditable][data-sid]{pointer-events:none;cursor:default}
+.step-card.editing [contenteditable][data-sid]{cursor:text}
+.step-card.editing [contenteditable][data-sid]:hover:not(:focus){background:rgba(255,255,255,.025);padding:2px 5px}
+
+/* Shots edit/view toggle */
+.shots-edit-area{display:none}
+.step-card.editing .shots-wrap{display:none}
+.step-card.editing .shots-edit-area{display:block}
+.shots-ta{
+  width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(167,139,250,.2);
+  border-radius:8px;color:var(--text2);font-size:12.5px;font-family:var(--fb);
+  padding:10px 13px;line-height:1.75;resize:vertical;min-height:72px;outline:none;
+}
+.shots-ta:focus{border-color:rgba(167,139,250,.45);background:rgba(167,139,250,.04)}
+.shots-ta-hint{font-size:10px;color:var(--text3);margin-top:5px;letter-spacing:.03em}
+
+/* Save toast */
+.save-toast{
+  position:fixed;bottom:28px;right:28px;z-index:300;
+  background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);
+  border-radius:100px;padding:8px 20px;
+  font-size:12px;font-weight:600;font-family:var(--fh);color:#10B981;letter-spacing:.06em;
+  opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s;pointer-events:none;
+}
+.save-toast.show{opacity:1;transform:translateY(0)}
+
 /* ── INFO SECTIONS ── */
 .info-section{max-width:860px;margin:0 auto;padding:64px 24px 0}
 .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
@@ -379,6 +432,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:15px
 
 <!-- Progress bar -->
 <div class="progress-bar" id="progressBar"></div>
+<div class="save-toast" id="saveToast">✓ Đã lưu</div>
 
 <!-- Price Research -->
 <section class="info-section">
@@ -623,6 +677,7 @@ function render(){
       <div class="step-text"><h3>${s.name}</h3><p>${s.sub}</p></div>
       <div class="header-right">
         <span class="time-badge">${s.time}</span>
+        <button class="edit-btn" onclick="event.stopPropagation();toggleEdit(${s.id})" title="Chỉnh sửa step này">✏</button>
         <div class="expand-btn">+</div>
       </div>
     </div>
@@ -630,27 +685,35 @@ function render(){
       <div class="card-detail-inner">
         <div class="detail-body">
           <div class="detail-hr"></div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span class="edit-hint">✏ Đang chỉnh sửa — bấm vào field để sửa, tự lưu khi rời</span>
+            <span class="reset-link" onclick="resetStep(${s.id})">↺ reset step này</span>
+          </div>
           <div>
             <div class="section-label"><span class="ico">📍</span> Route</div>
-            <div class="route-pill">${s.route.split('→').map((p,i,a)=>i<a.length-1?p.trim()+'<span class="arrow"> → </span>':p.trim()).join('')}</div>
+            <div class="route-pill" contenteditable="true" data-sid="${s.id}" data-field="route" spellcheck="false">${s.route}</div>
           </div>
           <div>
             <div class="section-label"><span class="ico">🎯</span> Bạn làm gì</div>
-            <div class="section-text">${s.action}</div>
+            <div class="section-text" contenteditable="true" data-sid="${s.id}" data-field="action" spellcheck="false">${s.action}</div>
           </div>
           <div>
             <div class="section-label"><span class="ico">🎬</span> Phải quay đủ</div>
             <div class="shots-wrap">${s.shots.map(sh=>`<span class="shot-pill">${sh}</span>`).join('')}</div>
+            <div class="shots-edit-area">
+              <textarea class="shots-ta" data-sid="${s.id}" data-field="shots" spellcheck="false" placeholder="Mỗi cảnh một dòng…">${s.shots.join('\n')}</textarea>
+              <div class="shots-ta-hint">↵ Enter = thêm cảnh mới · Xóa dòng = bỏ cảnh đó</div>
+            </div>
           </div>
           <div>
             <div class="section-label"><span class="ico">🎙</span> VO / Nội dung</div>
-            <div class="vo-block">${s.vo}</div>
+            <div class="vo-block" contenteditable="true" data-sid="${s.id}" data-field="vo" spellcheck="false">${s.vo}</div>
           </div>
           <div class="detail-grid">
-            <div class="dcell"><div class="dcell-label">💰 Budget / Proof</div><div class="dcell-val">${s.budget}</div></div>
-            <div class="dcell"><div class="dcell-label">⚠️ Xin phép & An toàn</div><div class="dcell-val">${s.safety}</div></div>
-            <div class="dcell"><div class="dcell-label">✅ Done khi…</div><div class="done-val">${s.done}</div></div>
-            <div class="dcell"><div class="dcell-label">🔄 Backup</div><div class="dcell-val">${s.backup}</div></div>
+            <div class="dcell"><div class="dcell-label">💰 Budget / Proof</div><div class="dcell-val" contenteditable="true" data-sid="${s.id}" data-field="budget" spellcheck="false">${s.budget}</div></div>
+            <div class="dcell"><div class="dcell-label">⚠️ Xin phép & An toàn</div><div class="dcell-val" contenteditable="true" data-sid="${s.id}" data-field="safety" spellcheck="false">${s.safety}</div></div>
+            <div class="dcell"><div class="dcell-label">✅ Done khi…</div><div class="done-val" contenteditable="true" data-sid="${s.id}" data-field="done" spellcheck="false">${s.done}</div></div>
+            <div class="dcell"><div class="dcell-label">🔄 Backup</div><div class="dcell-val" contenteditable="true" data-sid="${s.id}" data-field="backup" spellcheck="false">${s.backup}</div></div>
           </div>
         </div>
       </div>
@@ -744,7 +807,74 @@ window.addEventListener('scroll',()=>{
   bar.style.width=pct+'%';
 },{ passive:true });
 
+/* ── EDIT SYSTEM ── */
+let _toastTimer=null;
+
+function showSaveToast(){
+  clearTimeout(_toastTimer);
+  const t=document.getElementById('saveToast');
+  t.classList.add('show');
+  _toastTimer=setTimeout(()=>t.classList.remove('show'),2000);
+}
+
+function saveField(el){
+  const {sid,field}=el.dataset;
+  const key=`ep01_s${sid}_${field}`;
+  if(field==='shots'){
+    const shots=el.value.split('\n').map(s=>s.trim()).filter(Boolean);
+    localStorage.setItem(key,JSON.stringify(shots));
+    // refresh pill view so it's up-to-date when exiting edit mode
+    const wrap=el.closest('.detail-body').querySelector('.shots-wrap');
+    if(wrap) wrap.innerHTML=shots.map(sh=>`<span class="shot-pill">${sh}</span>`).join('');
+  } else {
+    localStorage.setItem(key,el.innerText.trim());
+  }
+  showSaveToast();
+}
+
+function toggleEdit(id){
+  const card=document.querySelector(`[data-id="${id}"]`);
+  const wasEditing=card.classList.contains('editing');
+  document.querySelectorAll('.step-card.editing').forEach(c=>c.classList.remove('editing'));
+  if(!wasEditing){
+    card.classList.add('editing');
+    if(!card.classList.contains('open')) toggle(id);
+  }
+}
+
+function resetStep(id){
+  if(!confirm(`Reset tất cả chỉnh sửa của Step ${id} về nội dung gốc?`)) return;
+  ['route','action','vo','budget','safety','done','backup','shots'].forEach(f=>{
+    localStorage.removeItem(`ep01_s${id}_${f}`);
+  });
+  location.reload();
+}
+
+function initEditable(){
+  document.querySelectorAll('[contenteditable][data-sid][data-field]').forEach(el=>{
+    el.addEventListener('blur',()=>saveField(el));
+    el.addEventListener('keydown',e=>{if(e.key==='Escape') el.blur()});
+  });
+  document.querySelectorAll('.shots-ta[data-sid]').forEach(el=>{
+    el.addEventListener('blur',()=>saveField(el));
+    let t; el.addEventListener('input',()=>{clearTimeout(t);t=setTimeout(()=>saveField(el),600)});
+  });
+}
+
+function loadSaved(){
+  STEPS.forEach(s=>{
+    ['route','action','vo','budget','safety','done','backup'].forEach(f=>{
+      const v=localStorage.getItem(`ep01_s${s.id}_${f}`);
+      if(v!==null) s[f]=v;
+    });
+    const sh=localStorage.getItem(`ep01_s${s.id}_shots`);
+    if(sh) try{s.shots=JSON.parse(sh)}catch(e){}
+  });
+}
+
+loadSaved();
 render();
+initEditable();
 </script>
 </body>
 </html>
